@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-public class GymVo {
+public class GymVo {11111111111111111111111111111
 	private int gNo;
 	private String gName;
 	private String gInfo;
