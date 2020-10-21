@@ -2,7 +2,7 @@ package com.jasla.ConnectGym.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-
+1212121212
 
 public class GymVo {11111111111111111111111111111
 	private int gNo;
