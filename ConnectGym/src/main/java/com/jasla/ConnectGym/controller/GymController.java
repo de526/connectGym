@@ -21,7 +21,7 @@ public class GymController {
 	public String dbtest(Model model) {
 		log.info("db연결 테스트 컨트롤러");
 		model.addAttribute("list", service.selectAll());
-
+		
 		return "main2";
 	}
 

@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Main page</title>
+
 </head>
 <body>
 <h1>
@@ -12,5 +13,8 @@
 
 <P> 인자 가져오기 !! -> ${test } </P>
 
+<img src="/ConnectGym/resources/gym_img/gym1_1.jpg"/>
 </body>
 </html>
+
+

@@ -9,8 +9,10 @@
 
 	 <c:forEach var="gym" items="${list}">
 		헬스장 이름 뿌리기 : ${gym.gymName}<br />
-
 	</c:forEach>
+	
+	
+	
 
 </body>
 </html>
