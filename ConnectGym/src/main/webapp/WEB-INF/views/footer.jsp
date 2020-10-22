@@ -1,11 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<link type="text/css" rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700">
-<meta charset="UTF-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
 * {
 	background: rgba(242, 242, 242, 0.2);
@@ -69,10 +62,7 @@ li {
     right: 190px;
     top: 90px;
 }
-
 </style>
-</head>
-<body>
 	<footer id="footer">
 		<div class="wrap">
 			<div class="text">CONNECT GYM</div>
@@ -96,8 +86,6 @@ li {
 						<li><a href="../contact/" class="btn big t2 arrow">REQEUST</a></li>
 						<li><a href="#location" class="btn big arrow">LOCATION</a></li>
 					</ul>
-
-
 				</div>
 			</div>
 		</div>
