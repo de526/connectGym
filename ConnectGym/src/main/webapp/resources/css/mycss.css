@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* header */
+.header{
+	width: 1920px;
+	height: 100px;
+	margin: auto;
+	background-color: #ffffff;
+    background-color: rgba( 255, 255, 255, 0.0 );
+    display: inline-block;
+    text-align: center;
+}
+
+.topnav-menu a {
+	width: 1105px;
+	height: 100px;
+	font-size: 18px;
+	text-decoration: none;
+	color: #777777;
+	padding: 20px;
+	line-height: 24px;
+}
+.topnav-menu a :hover {
+	color: #009DFF;
+}
+.topnav-join a {
+	width: 150px;
+	height: 100px;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+	color: #777777;
+	float: right;
+}
+.topnav-join a :hover {
+	color: #009DFF;
+}
+.logo-img{
+	width: 280px;
+	height: 100px;
+	
+}
