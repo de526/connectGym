@@ -11,15 +11,15 @@ import com.jasla.ConnectGym.service.GymService;
 
 
 @Controller
-public class HomeController2 {
+public class HomeController3 {
 
 	@Autowired
 	public GymService service;
 	
-	// 테스트용 헤더가는 컨트롤러
-	@RequestMapping(value = "/header", method = RequestMethod.GET)
+	// 테스트용 푸터가는 컨트롤러
+	@RequestMapping(value = "/footer", method = RequestMethod.GET)
 	public String home(Model model) {
-		return "header";
+		return "footer";
 	}
 
 
