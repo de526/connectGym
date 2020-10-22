@@ -25,7 +25,8 @@
 </script>
 </head>
 <body>
-	<div class="header">
+<div class="container">
+	<div id="header">
 		<div class="logo">
 			<a href="/ConnectGym/">
 				<img src="/ConnectGym/resources/css_img/top-logo.png">

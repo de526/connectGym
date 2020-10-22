@@ -2,11 +2,14 @@
 	margin: 0;
 	padding: 0;
 	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container{
 	background: rgba(242,242,242,0.2);
 }
 
 /* header */
-.header{
+#header{
 	width: 1920px;
 	height: 120px;
 	margin: auto;
@@ -28,21 +31,21 @@ a {
 }
 
 
-.logo{
+#header .logo{
 	width: 280px;
 	height: 100px;
 	padding-top: 20px;
 }
-.logo img{
+#header .logo img{
 	width: 280px;
 	height: 100px;
 }
 
-.navBar{
+#header .navBar{
 	padding-left: 400px;
 }
 
-.navBar ul li{
+#header .navBar ul li{
 	width: 140px;
 	height: 70px;
 	font-size: 18px;
@@ -53,18 +56,18 @@ a {
 	padding-top: 50px;
 }
 
-a.on{
+#header a.on{
 	color: #009dff;
 	box-shadow: inset 0 -3px 0 #009dff; 
 	padding-bottom: 15px;
 }
 
 
-.sign{
+#header .sign{
 	padding-right: 50px;
 }
 
-.sign ul li{
+#header .sign ul li{
 	width: 70px;
 	height: 15px;
 	font-size: 14px;
@@ -74,4 +77,56 @@ a.on{
 	color: #777777;
 	padding-top: 50px;
 	
+}
+
+#footer .wrap {
+	display: table;
+	width: 1920px;
+	height: 430px;
+	text-align: center;
+}
+
+#footer .text {
+	opacity: 0.08;
+	font-size: 100px;
+	font-family: Tahoma, Tahoma-Bold;
+	font-weight: 900;
+	color: #777777;
+	position: relative;
+	left: 10px;
+	top: 45px;
+}
+
+#footer .box {
+	width: 1100px;
+	height: 350px;
+	opacity: 0.85;
+	background: #000000;
+	border-radius: 15px;
+	margin: 0 auto;
+	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.71);
+	position: relative;
+}
+
+#footer.info li {
+	display: inline-block;
+	vertical-align: middle;
+	float: left;
+	width: 33.333%;
+	font-size: 15px;
+	font-weight: 600;
+	color: #595c6d;
+	line-height: 20px;
+	letter-spacing: -0.5px;
+	text-align: left;
+}
+#footer .info li.fi_address {
+    margin-bottom: 40px;
+}
+#footer .f_btn {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    right: 190px;
+    top: 90px;
 }
