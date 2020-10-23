@@ -1,12 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
 #footer ul li {
-/* 	float:left; */
 	margin: 0 auto;
 	padding: 10px;
+	list-style: none;
 }
 #footer .info {
 	color: white;
+	padding: 30px;
+}
+
+#footer .cm {
+	font-weight: bold;
+}
+#footer a {
+	color: white;
+
 }
 </style>
 	<footer id="footer">
@@ -15,17 +24,15 @@
 			<div class="box">
 				<div class="info">
 					<ul>
-						<li><strong>COMPANY</strong><span class="cm"> 커짐</span></li>
-						<li><strong>ADDRESS</strong><span>서울특별시 금천구 가산디지털1로 186, 제이플라츠 515~516호 </span></li>
-						<li><strong>BUSINESS LICENSE</strong><span>332-81-00662</span></li>
-						<li><strong>TEL</strong> <span><a href="tel:07050960709">070-5096-0709</a></span></li>
-						<li><strong>E-MAIL</strong> <span><a href="mailto:connectgym@gmail.com">connectgym@gmail.com</a></span></li>
+						<li><strong>상호명: </strong><span class="cm"> 커짐</span>&nbsp;&nbsp; <span class="cm">대표 : 홍길동</span></li>
+						<li><strong>사업자등록번호: </strong><span class="cm">105-01-26169</span>&nbsp;&nbsp; <span class="cm">통신판매업 신고번호 : </span><span class="cm">제 2020-서울금천-0101-0001호</span></li>
+						<li><strong>서울시 금천구 가산디지털1로 186 (가산동. 제이플라츠 5F. 515,516호)</strong>&nbsp;&nbsp;<span class="cm">대표전화 : </span><span class="cm"><a href="tel:1588-3082">1588-3082</a></span></li>
+						<li><strong>이용약관</strong>&nbsp;&nbsp;<strong>개인정보 처리방침</strong></li>
+						<li><strong>Copyright © 커짐</strong>&nbsp;&nbsp;<span class="cm"><a href="mailto:connectgym@gmail.com">connectgym@gmail.com</a></span></li>
 					</ul>
 					<ul></ul>
 				</div>
 				<div class="f_address">
-					Copyright
-					<a href="../contact/" class="btn big t2 arrow">REQEUST</a>
 					<a href="#location" class="btn big arrow">LOCATION</a>
 				</div>
 			</div>
