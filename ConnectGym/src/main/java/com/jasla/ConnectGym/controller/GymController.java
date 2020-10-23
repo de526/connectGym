@@ -1,10 +1,18 @@
 package com.jasla.ConnectGym.controller;
 
+
+import java.util.List;
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jasla.ConnectGym.domain.GymVO;
 import com.jasla.ConnectGym.service.GymService;
 
 import lombok.extern.log4j.Log4j;
@@ -20,9 +28,17 @@ public class GymController {
 	@RequestMapping("/db")
 	public String dbtest(Model model) {
 		log.info("db연결 테스트 컨트롤러");
-		model.addAttribute("list", service.selectAll());
+		//model.addAttribute("list", service.selectAll());
 		
-		return "main2";
+		return "search/searchPage";
+	}
+	
+	@RequestMapping("/searchList.do")
+	@ResponseBody
+	public List<GymVO> searchList(@RequestParam("tags[]") List<String> tags,Model model) {
+		
+		log.info("ajax test@@@"+ tags.toString());
+		return service.selectAll();
 	}
 
 }
