@@ -17,9 +17,9 @@ public class HomeController2 {
 	public GymService service;
 	
 	// 테스트용 헤더가는 컨트롤러
-	@RequestMapping(value = "/aboutUs", method = RequestMethod.GET)
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String home(Model model) {
-		return "aboutUs";
+		return "join";
 	}
 
 
