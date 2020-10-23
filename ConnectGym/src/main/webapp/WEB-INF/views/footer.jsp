@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
+#footer ul li {
+	float:left;
+	margin: 0 auto;
+}
 </style>
 	<footer id="footer">
 		<div class="wrap">
@@ -9,7 +13,7 @@
 					<ul>
 						<li><strong>COMPANY</strong> <span class="cm">커짐</span>
 						</li>
-						<li class="fi_address"><strong>ADDRESS</strong> <span>서울특별시
+						<li><strong>ADDRESS</strong> <span>서울특별시
 								금천구 가산디지털1로 186, 제이플라츠 515~516호 </span></li>
 						<li><strong>BUSINESS LICENSE</strong> <span>332-81-00662</span>
 						</li>
