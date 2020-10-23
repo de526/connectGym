@@ -3,7 +3,28 @@
 <meta charset="UTF-8">
 <body>
 	<div class="content">
+	<br>asdasd
+	<br>as
+	<br>das
+	<br>d
+	<br>asdds
+	<br>dasdsd
+	<br>sd
+	<br>sdasd
+	<br>sa
+	<br>d
+	<br>as
+	d
+	sa
+	d
+	asd
+	as
+	d
+	sad
+	sasd
+	sa
+	
 	</div>
-
 </body>
+<jsp:include page="footer.jsp" />
 </html>
