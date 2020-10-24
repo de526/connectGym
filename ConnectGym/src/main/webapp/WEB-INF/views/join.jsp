@@ -14,39 +14,43 @@
 				<caption style="font-size: 30px;font-weight: bold;">Join Us!</caption>
 		<tr></tr>
 		<tr>
-			<td align="center">아이디 : </td>
-			<td><input type="text" name="id" size="20" maxlength="12"/> 4~12자의 영문 대소문자와 숫자로만 입력</td>
+			<td align="center">이메일 : </td>
+			<td><input type="text" name="mem_mail" size="50" maxlength="50"/></td>
 		</tr>
 		<tr>
 			<td align="center">비밀번호 : </td>
-			<td><input type="password" name="pw" size="20" maxlength="12"/> 4~12자의 영문 대소문자와 숫자로만 입력</td>
+			<td><input type="password" name="mem_pw" size="20" maxlength="12"/> 4~12자의 영문 대소문자와 숫자로만 입력</td>
 		</tr>
 		<tr> 
 			<td align="center">비밀번호 확인 : </td>
-			<td><input type="password" name="cpw" size="20" maxlength="12"/></td>	
-		</tr>
-		<tr>
-			<td align="center">메일주소 : </td>
-			<td><input type="text" name="email1" size="20"/>
-				@
-				<input type="email" name="email2" list="domain" size="20" placeholder="직접 입력"/>
-					<datalist id="domain">
-						<option value="naver.com">naver.com</option>
-						<option value="hanmail.net">hanmail.net</option>
-						<option value="gmail.com">gmail.com</option>
-					</datalist>
-			</td>
+			<td><input type="password" name="mem_cpw" size="20" maxlength="12"/></td>	
 		</tr>
 		<tr>
 			<td align="center">이름 : </td>	
-			<td><input type="text" name="name" size="10"/></td>
+			<td><input type="text" name="mem_name" size="10"/></td>
+		</tr>
+		<tr>
+			<td align="center">닉네임 : </td>	
+			<td><input type="text" name="mem_nick" size="15"/></td>
 		</tr>
 		<tr>
 			<td align="center">생년월일 : </td>
-			<td><input type="number" name="year" size="6" placeholder="년"/> 년 
-			<input type="number" name="month" size="5" placeholder="월"/> 월 
-			<input type="number" name="day" size="5" placeholder="일"/> 일 
-			</td>
+			<td><input type="text" name="mem_birth" size="6"/> 예시) 990101</td>
+		</tr>
+		<tr>
+			<td align="center">성별 : </td>
+			<td>
+				<input type="radio" name="mem_gender" value="남" checked>남
+            	<input type="radio" name="mem_gender" value="여" checked>여
+            <td>	
+		</tr>
+		<tr>
+			<td align="center">주소 : </td>
+			<!--  주소 api 삽입예정 -->
+		</tr>
+		<tr>
+			<td align="center">연락처 : </td>
+			<td><input type="text" name="mem_phone" size="11"/>
 		</tr>
 			</table>
 				</form>
