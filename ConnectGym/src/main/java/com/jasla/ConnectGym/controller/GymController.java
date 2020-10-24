@@ -35,9 +35,11 @@ public class GymController {
 	
 	@RequestMapping("/searchList.do")
 	@ResponseBody
-	public List<GymVO> searchList(@RequestParam("tags[]") List<String> tags,Model model) {
+	public List<GymVO> searchList(@RequestParam("tags[]") List<String> tags,
+			@RequestParam("search") String searchValue) {
 		
 		log.info("ajax test@@@"+ tags.toString());
+		log.info(searchValue);
 		return service.selectAll();
 	}
 

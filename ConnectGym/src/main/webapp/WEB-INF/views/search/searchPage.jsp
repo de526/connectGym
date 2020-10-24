@@ -14,13 +14,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div class="wrap">
 		<div class="content-box">
 			<div id="searchBar">
 				<select>
 					<option>피트니스센터</option>
 					<option>트레이너</option>
-				</select> <input type="text">
+				</select> <input type="text" id="serachBox"> 
+				<input type="button"
+					onclick="get_searchBox()">
+
 			</div>
 			<div id="tagBar">
 				<form></form>
@@ -46,8 +50,15 @@
 		}
 		document.getElementById('tagBar').innerHTML = tagContent;
 	</script>
-	<script>
-		function get_searchList() {
+	<script>	
+		var searchValue = null;//button눌렀을때 검색값 저장하는 변수
+		function get_searchBox(){
+			searchValue = document.getElementById("serachBox").value;
+			//변수값저장하고 태그확인하면서 리스트 가져오기
+			get_searchList();
+		}
+
+		function get_searchList() {			
 			var tags = document.getElementsByName("checkbox_tag");
 			var tags_arr = new Array();
 			for (var i = 0; i < tags.length; i++) {
@@ -55,28 +66,27 @@
 					tags_arr.push(tags[i].value);
 				}
 			}
-			//체크된 배열 가지고 ajax 다녀오기~
+			console.log(tags_arr);
+			console.log(searchValue);
+
+			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
 			$.ajax({
 				url : "/ConnectGym/searchList.do",
 				type : "post",
 				data : {
-					"tags" : tags_arr
+					"tags" : tags_arr,
+					"search":searchValue
 				},
-				dataType:"json",
+				dataType : "json",
 				success : function(json) {
-					console.log(json);
-				
+					//console.log(json);
+
 				},
 				error : function() {
 					alert("통신에 실패했습니다.");
 				}
-			}
-
-			)
-
+			}); // ajax 끝~
 		}
-		
-	
 	</script>
 
 
