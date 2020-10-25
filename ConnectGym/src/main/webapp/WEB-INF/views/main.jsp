@@ -130,7 +130,7 @@
 
 <script type="text/javascript">
 	
-	
+// 	배너 전환 함수
 	function circle(num) {
 		$('.banner > img').attr('src','/ConnectGym/resources/test_img/main' + num + '.jpg')
 		$('.banner_button > div').css('background', 'white')

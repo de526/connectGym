@@ -66,11 +66,11 @@ a {
 }
 
 
-#header .sign{
+#header .signBar{
 	padding-right: 50px;
 }
 
-#header .sign ul li{
+#header .signBar ul li{
 	width: 70px;
 	height: 15px;
 	font-size: 14px;

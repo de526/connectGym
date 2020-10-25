@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <title>커짐</title>
 <script type="text/javascript">
+
+//	navBar 클릭시 컬러 변경
 	$(function() {
 		$('.navBar > ul > li > a').click(function() {
 			$('.navBar > ul > li > a').removeClass()
@@ -16,9 +18,10 @@
 		})
 	})
 	
+//	signBar 클릭시 컬러 변경
 	$(function() {
-		$('.sign > ul > li > a').click(function() {
-			$('.sign > ul > li > a').removeClass()
+		$('.signBar > ul > li > a').click(function() {
+			$('.signBar > ul > li > a').removeClass()
 				$(this).addClass('on')
 		})
 	})
@@ -43,7 +46,7 @@
 			</ul>
 		</div>
 		
-		<div class="sign">
+		<div class="signBar">
 			<ul>
 				<li><a href="#">로그인</a></li>			
 				<li><a href="#">회원가입</a></li>
