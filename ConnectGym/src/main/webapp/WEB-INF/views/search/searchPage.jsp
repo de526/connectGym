@@ -22,13 +22,13 @@
 					<option>피트니스센터</option>
 					<option>트레이너</option>
 				</select> <input type="text" id="serachBox"> 
-				<input type="button"
-					onclick="get_searchBox()">
-
+				<input type="button" onclick="get_searchBox()">
 			</div>
+
 			<div id="tagBar">
 				<form></form>
 			</div>
+			
 			<div id="list"></div>
 		</div>
 
@@ -40,11 +40,8 @@
 		var tagContent = '';
 
 		for (var i = 0; i < tag_keyword.length; i++) {
-			tagContent += '<input type="checkbox" name="checkbox_tag" class="cls_tag" id="tag_'
-					+ tag_keyword[i]
-					+ '" value="'
-					+ tag_keyword[i]
-					+ '" onchange="get_searchList()">';
+			tagContent += '<input type="checkbox" name="checkbox_tag" class="cls_tag" id="tag_'	+ tag_keyword[i]
+					+ '" value="'+ tag_keyword[i]+ '" onchange="get_searchList()">';
 			tagContent += '<label for="tag_'+tag_keyword[i]+'">';
 			tagContent += '<span>' + tag_keyword[i] + '</span> </label>';
 		}
@@ -66,8 +63,8 @@
 					tags_arr.push(tags[i].value);
 				}
 			}
-			console.log(tags_arr);
-			console.log(searchValue);
+			//console.log(tags_arr);
+			//console.log(searchValue);
 
 			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
 			$.ajax({
@@ -79,7 +76,12 @@
 				},
 				dataType : "json",
 				success : function(json) {
-					//console.log(json);
+					console.log(json[0].gymNo)
+					/* $.each(json,function(index,item){
+						console.log(index)
+						console.log(item.gymNo)
+					}) */
+					
 
 				},
 				error : function() {
