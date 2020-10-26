@@ -28,8 +28,7 @@ public class SearchController {
 	@RequestMapping("/db")
 	public String dbtest(Model model) {
 		log.info("db연결 테스트 컨트롤러");
-		//model.addAttribute("list", service.selectAll());
-		
+		model.addAttribute("list", service.selectAll());		
 		return "search/searchPage";
 	}
 	
@@ -37,9 +36,10 @@ public class SearchController {
 	@ResponseBody
 	public List<GymVO> searchList(@RequestParam("tags[]") List<String> tags,
 			@RequestParam("search") String searchValue) {
-		
-		log.info("ajax test@@@"+ tags.toString());
+		log.info("ajax test@@@");
+		log.info(tags.toString());
 		log.info(searchValue);
+		
 		return service.selectAll();
 	}
 

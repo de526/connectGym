@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +11,26 @@
 .cls_tag {
 	display: none;
 }
+
+.on {
+	color: red;
+}
 </style>
+<script type="text/javascript">
+	$(function() {
+		$('label').click(function() {
+			if ($(this).hasClass('on')) {
+				$(this).removeClass('on')
+			} else {
+				$(this).addClass('on')
+			}
+		})
+	})
+</script>
 <title>Insert title here</title>
 </head>
 <body>
-
+	<jsp:include page="../header.jsp" />
 	<div class="wrap">
 		<div class="content-box">
 			<div id="searchBar">
@@ -28,8 +44,17 @@
 			<div id="tagBar">
 				<form></form>
 			</div>
+				
 			
-			<div id="list"></div>
+			<div id="gymlist">
+				<c:forEach items="#{list}" var="gym">
+				<hr>
+					${gym.gymName }	<br/>
+							
+				
+				</c:forEach>
+
+			</div>
 		</div>
 
 	</div>
@@ -40,22 +65,27 @@
 		var tagContent = '';
 
 		for (var i = 0; i < tag_keyword.length; i++) {
-			tagContent += '<input type="checkbox" name="checkbox_tag" class="cls_tag" id="tag_'	+ tag_keyword[i]
-					+ '" value="'+ tag_keyword[i]+ '" onchange="get_searchList()">';
+			tagContent += '<input type="checkbox" name="checkbox_tag" class="cls_tag" id="tag_'
+					+ tag_keyword[i]
+					+ '" value="'
+					+ tag_keyword[i]
+					+ '" onchange="get_searchList()">';
 			tagContent += '<label for="tag_'+tag_keyword[i]+'">';
 			tagContent += '<span>' + tag_keyword[i] + '</span> </label>';
 		}
 		document.getElementById('tagBar').innerHTML = tagContent;
 	</script>
-	<script>	
+	<script>
 		var searchValue = null;//button눌렀을때 검색값 저장하는 변수
-		function get_searchBox(){
+
+		function get_searchBox() {
 			searchValue = document.getElementById("serachBox").value;
 			//변수값저장하고 태그확인하면서 리스트 가져오기
 			get_searchList();
 		}
 
-		function get_searchList() {			
+		function get_searchList() {
+
 			var tags = document.getElementsByName("checkbox_tag");
 			var tags_arr = new Array();
 			for (var i = 0; i < tags.length; i++) {
@@ -72,7 +102,7 @@
 				type : "post",
 				data : {
 					"tags" : tags_arr,
-					"search":searchValue
+					"search" : searchValue
 				},
 				dataType : "json",
 				success : function(json) {
@@ -81,16 +111,15 @@
 						console.log(index)
 						console.log(item.gymNo)
 					}) */
-					
 
 				},
 				error : function() {
-					alert("통신에 실패했습니다.");
+					//alert("통신에 실패했습니다.");
 				}
 			}); // ajax 끝~
 		}
 	</script>
 
-
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
