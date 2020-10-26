@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>커짐</title>
+
 <script type="text/javascript">
 
 //	navBar 클릭시 컬러 변경
@@ -26,6 +27,7 @@
 		})
 	})
 </script>
+
 </head>
 <body>
 <div class="container">
