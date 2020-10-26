@@ -40,6 +40,7 @@ public class SearchController {
 		log.info(tags.toString());
 		log.info(searchValue);
 		
+		
 		return service.selectAll();
 	}
 

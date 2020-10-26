@@ -13,7 +13,33 @@
 }
 
 .on {
-	color: red;
+	color: white;
+	background-color: black;
+}
+.tag_label{
+	border-radius: 5px;
+	padding: 3px;
+	text-align: center; 
+	margin: 2px;
+	background-color: #ffffff; 	
+}
+.content-box{
+	width: 65%;
+	margin: 0 auto;
+}
+#searchBar{
+	text-align: center;
+}
+.searchIcon{
+	float: right;
+}
+#tagBox{
+	height:50px;
+	border: 2px solid #D8D8D8;
+	border-radius: 10px;
+	background-color: #D8D8D8;
+	padding: 10px;
+	text-align: center;
 }
 </style>
 <script type="text/javascript">
@@ -33,51 +59,45 @@
 	<jsp:include page="../header.jsp" />
 	<div class="wrap">
 		<div class="content-box">
-			<div id="searchBar">
-				<select>
-					<option>피트니스센터</option>
-					<option>트레이너</option>
-				</select> <input type="text" id="serachBox"> 
-				<input type="button" onclick="get_searchBox()">
-			</div>
-
-			<div id="tagBar">
-				<form></form>
-			</div>
+			<div id="searchBar">			
+				<input type="text" id="searchBox" size="30"> 
+				<input type="button" onclick="get_searchBox()" value="검색">
 				
+				<div class="searchIcon">
+					<img src="dd" onclick="">
+					<img src="dd" onclick="">
+				</div>
+				 
+			</div>
 			
-			<div id="gymlist">
-				<c:forEach items="#{list}" var="gym">
-				<hr>
-					${gym.gymName }	<br/>
-							
-				
-				</c:forEach>
-
+			<br/><hr/><br/>
+			<div id="tagBox">
 			</div>
+			<br />
+			<!-- 해당되는 트레이너/헬스장 리스트 가져오기 -->
+			<jsp:include page="searchGym.jsp" />
+			
 		</div>
 
 	</div>
 	<script>
-		//태그 전체 출력하기 , 체크박스 설정해서 tagBar안에 넣기
+		//태그 전체 출력하기 , 체크박스 설정해서 tagBox안에 넣기
 		var tag_keyword = [ '여자', '남자', '다이어트', '근력증진', '바디프로필', '대회준비', '영어',
 				'바른체형', '기초체력', '벌크업', '멸치탈출' ];
 		var tagContent = '';
 
 		for (var i = 0; i < tag_keyword.length; i++) {
-			tagContent += '<input type="checkbox" name="checkbox_tag" class="cls_tag" id="tag_'
-					+ tag_keyword[i]
-					+ '" value="'
-					+ tag_keyword[i]
+			tagContent += '<input type="checkbox" name="checkbox_tag" class="cls_tag" id="tag_'	+ tag_keyword[i]
+					+ '" value="'+ tag_keyword[i]
 					+ '" onchange="get_searchList()">';
-			tagContent += '<label for="tag_'+tag_keyword[i]+'">';
+			tagContent += '<label class="tag_label" for="tag_'+tag_keyword[i]+'">';
 			tagContent += '<span>' + tag_keyword[i] + '</span> </label>';
 		}
-		document.getElementById('tagBar').innerHTML = tagContent;
+		document.getElementById('tagBox').innerHTML = tagContent;
 	</script>
 	<script>
+	
 		var searchValue = null;//button눌렀을때 검색값 저장하는 변수
-
 		function get_searchBox() {
 			searchValue = document.getElementById("serachBox").value;
 			//변수값저장하고 태그확인하면서 리스트 가져오기
@@ -87,13 +107,13 @@
 		function get_searchList() {
 
 			var tags = document.getElementsByName("checkbox_tag");
-			var tags_arr = new Array();
+			var checkedTag = new Array();
 			for (var i = 0; i < tags.length; i++) {
 				if (tags[i].checked == true) {
-					tags_arr.push(tags[i].value);
+					checkedTag.push(tags[i].value);
 				}
 			}
-			//console.log(tags_arr);
+			//console.log(checkedTag);
 			//console.log(searchValue);
 
 			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
@@ -101,7 +121,7 @@
 				url : "/ConnectGym/searchList.do",
 				type : "post",
 				data : {
-					"tags" : tags_arr,
+					"tags" : checkedTag,
 					"search" : searchValue
 				},
 				dataType : "json",
