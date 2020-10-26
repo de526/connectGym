@@ -19,7 +19,7 @@ public class HomeController2 {
 	// 테스트용 헤더가는 컨트롤러
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String home(Model model) {
-		return "join";
+		return "join/join";
 	}
 
 
