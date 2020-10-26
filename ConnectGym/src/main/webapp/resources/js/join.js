@@ -53,49 +53,58 @@ function searchPost() {
 
 }; //
 
-// 아이디 중복 점검
-$("#mem_mail").blur(function(){
+	// 이메일 중복 점검
+$("#mem_mail").blur(function() {
 	
-	console.log("이메일 중복 점검");
+	console.log("이메일 중복점검");
 	
-	// 정규식 저검으로 유효 데이터 전송;
-	var regexMail = new RegExp($("#mem_mail").attr("pattern"));
-	
-	var mem_mail = $("mem_mail").val();
-	
-	console.log("rootPath : " +rootPath);
-	
-	if(regexMail.test(mem_mail)){// 정규식 점검 통과
-		
-		$.ajax({
-			url : rootPath + '/member/idCheck.do',
-			type : 'post',
-			dataType : 'text',
-			data : {
-				mem_mail : ${'mem_mail').val()
-			},
-			success : function(data) {
-				
-				console.log("아이디 중복 점검 수신!");
-					
-				// 중복 점검 체크 플래그 재설정
-				if(data.trim() == '사용할 수 있는 아이디입니다.') {
-					// 메세지 초기화 : 정상적일 경우는 메시지 표기가 불필요할 경우
-					$("#mem_mail_err").text("");
-					mailCheckFlag = ture;
-					} else {
-						$("#mem_mail_err").text(data);
-						mailCheckFlag = false;
-					}
-				}, // success
-				
-				error : function(xhr, status){
-					console.log(xhr+" : " +status); // 에러 코드
-				}
-		
-			}
-		}); // ajax
-	}
-	
-})
+	// 정규식 점검으로 유효 데이터 전송
+	var regexEmail = new RegExp($("#mem_mail").attr("pattern"));
+	var mem_mail = $("#mem_mail").val();
 
+	if (regexEmail.test(memberEmail)) { // 정규식 점검 통과
+	
+    	$.ajax({
+    		 // url : '${pageContext.request.contextPath}/member/emailCheck.do',
+    		 url : rootPath + '/member/emailCheck.do',
+             type : 'post',
+             dataType:'text',
+             data : {
+                 memberEmail : $('#mem_mail').val()
+             },
+             success : function(data) {
+               
+                console.log("이메일 중복 점검 수신 !");
+                
+             	// 중복 점검 체크 플래그 재설정
+                if (data.trim() == '사용할 수 있는 이메일입니다.') {
+            	   // 메시지 초기화 : 정상적일 경우는 메시지 표기 불필요할 경우
+            	   $("#mem_mail_err").text("");
+            	   emailCheckFlag = true;
+                } else {
+               	   $("#memberEmail_err").text(data);
+                   emailCheckFlag = false;
+                }
+             	
+                // 플래그 인쇄
+	                console.log("idCheckFlag : "+ idCheckFlag);
+	                console.log("emailCheckFlag : "+ emailCheckFlag);
+	                console.log("phoneCheckFlag : "+ phoneCheckFlag);
+               
+            }, // success
+             
+             error : function(xhr, status) {
+                console.log(xhr+" : "+status); // 에러 코드
+            }
+ 
+    	}); // ajax
+
+	} else { // 정규식 점검 실패
+		
+		// 에러 메시징
+		$("#memberEmail_err").text(($("#memberEmail").attr("title")));
+		// 재입력 대기
+		$("#memberEmail").focus();
+	} //
+	
+});
