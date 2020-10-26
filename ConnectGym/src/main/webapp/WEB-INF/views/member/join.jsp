@@ -12,6 +12,8 @@
 
 <!-- daum 주소 검색 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="/ConnectGym/resources/js/join.js" charset="UTF-8"></script>
+
 	<div id="join">
 		<div class="join_wrap">
 			<div class="join_panel">

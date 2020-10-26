@@ -11,7 +11,7 @@ import com.jasla.ConnectGym.service.GymService;
 
 
 @Controller
-public class HomeController2 {
+public class MemberController {
 
 	@Autowired
 	public GymService service;
@@ -19,7 +19,7 @@ public class HomeController2 {
 	// 테스트용 헤더가는 컨트롤러
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String home(Model model) {
-		return "join/join";
+		return "member/join";
 	}
 
 
