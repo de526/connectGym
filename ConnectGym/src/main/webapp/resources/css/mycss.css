@@ -134,7 +134,7 @@ a {
 .main{
 	display: inline-flex;
 	width: 1850px;
-	height: 935px;
+	height: 100%;
 	position: relative;
 	top: -120px;
 }

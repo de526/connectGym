@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-public class GymController {
+public class SearchController {
 
 	@Autowired
 	public GymService service;
