@@ -27,7 +27,7 @@
 				
 				<!-- 이메일(아이디) -->
 				<tr>
-					<td><span class="requiredFld">*</span> 아이디</td>
+					<td><span class="requiredFld">*</span> 이메일(아이디)</td>
 					<td>
 						<input type="text"
 								id="mem_mail"
@@ -40,10 +40,11 @@
 						<span id="mem_mail_err" class="err_msg"></span>
 					</td>
 				</tr>
+				<!-- 패스워드 -->
 				<tr>
 					<td><span class="requiredFld">*</span> 패스워드</td>
 					<td>
-						<input type="text"
+						<input type="password"
 								id="mem_pw"
 								name="mem_pw"
 								maxlength="20"
@@ -52,6 +53,20 @@
 								title="패스워드는 영문 대소문자와 특수문자 숫자를 조합하여, 8~20자로 입력해주세요">
 					</td>		
 				</tr>
+				<!-- 패스워드 확인 -->
+				<tr>
+					<td><span class="requiredFld">*</span> 패스워드 확인</td>
+					<td>
+						<input type="password"
+								id="mem_cpw"
+								name="mem_cpw"
+								maxlength="20"
+								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,20}"
+								required
+								title="패스워드는 영문 대소문자와 특수문자 숫자를 조합하여, 8~20자로 입력해주세요">
+					</td>		
+				</tr>
+				<!--  이름 -->
 				<tr>
 					<td><span class="requiredFld">*</span> 이름</td>
 					<td>
@@ -64,6 +79,7 @@
 								title="이름은 한글로 입력해주세요">
 					</td>
 				</tr>
+				<!--  닉네임 -->
 				<tr>
 					<td><span class="requiredFld">*</span> 닉네임</td>
 					<td>
@@ -76,32 +92,28 @@
 								title="닉네임은 한글과 영어 숫자만 사용해주세요">
 					</td>
 				</tr>
+				<!-- 성별 -->
 				<tr>
 					<td><span class="requiredFld">*</span> 성별</td>
 					<td>
-						<ul id="radio_gender">
-							<li>
-								<input type="radio"
+						<input id="radio_gender" type="radio"
 										id="memGenderMale"
 										name="mem_gender"
 										value="m"
 										checked
 										required>
 								<label for="memGenderMale">남자</label>
-								<div class="check"></div>		
-							</li>
-							<li>
-								<input type="radio"
+						<div class="check"></div>		
+						<input type="radio"
 										id="memGenderFemale"
 										name="mem_gender"
 										value="f">
-								<label for="memGenderfemale">여자</label>
-								<div class="check"></div>		
-							</li>
-						</ul>
+						<label for="memGenderfemale">여자</label>
+						<div class="check"></div>		
 					</td>
 				</tr>
 				<!-- 다음 주소 api -->
+				<!-- 우편번호 -->
 				<tr>				
 					<td>우편번호</td>
 					<td>
@@ -119,6 +131,7 @@
 								onClick="searchPost()"><br>		
 					</td>
 				</tr>
+				<!-- 기본주소 -->
 				<tr>
 					<td>기본 주소</td>
 					<td>
@@ -132,6 +145,7 @@
 							readonly>
 					</td>
 				</tr>
+				<!-- 상세주소 -->
 				<tr>
 					<td>상세주소</td>
 					<td>
@@ -144,6 +158,7 @@
 								title="상세주소를 입력하세요">
 					</td>
 				</tr>
+				<!-- 연락처 -->
 				<tr>
 					<td><span class="requiredFld">*</span>연락처</td>
 					<td>
@@ -161,6 +176,7 @@
 				</tr>
 				</table>
 				<table id="joinFormMenu">
+				<!-- 서밋 -->
 					<tr>
 						<td>
 							<input type="submit"
@@ -174,52 +190,6 @@
 						</td>
 					</tr>	
 				</table>
-<!-- 		<tr></tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">이메일 : </td> -->
-<!-- 			<td><input type="text" name="mem_mail" size="50" maxlength="50"/></td> -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">비밀번호 : </td> -->
-<!-- 			<td><input type="password" name="mem_pw" size="20" maxlength="12"/> 4~12자의 영문 대소문자와 숫자로만 입력</td> -->
-<!-- 		</tr> -->
-<!-- 		<tr>  -->
-<!-- 			<td align="center">비밀번호 확인 : </td> -->
-<!-- 			<td><input type="password" name="mem_cpw" size="20" maxlength="12"/></td>	 -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">이름 : </td>	 -->
-<!-- 			<td><input type="text" name="mem_name" size="10"/></td> -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">닉네임 : </td>	 -->
-<!-- 			<td><input type="text" name="mem_nick" size="15"/></td> -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">생년월일 : </td> -->
-<!-- 			<td><input type="text" name="mem_birth" size="6"/> 예시) 990101</td> -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">성별 : </td> -->
-<!-- 			<td> -->
-<!-- 				<input type="radio" name="mem_gender" value="남" checked>남 -->
-<!--             	<input type="radio" name="mem_gender" value="여" checked>여 -->
-<!--             <td>	 -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">주소 : </td> -->
-<!-- 			<!--  주소 api 삽입예정 -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align="center">연락처 : </td> -->
-<!-- 			<td><input type="text" name="mem_phone" size="11"/> -->
-<!-- 		</tr> -->
-<!-- 			</table> -->
-<!-- 				<p align="center"> -->
-<!-- 					<input type="submit" value="회원가입" style= margin-right:-3px;/> -->
-<!-- 					<input type="reset"  style= margin-left:-3px; value="다시입력"/> -->
-<!-- 			<br/><br/> -->
-<!-- 		</p> -->
 				</form:form>
 			</div>
 		</div>
