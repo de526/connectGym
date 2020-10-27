@@ -43,7 +43,7 @@
 			<ul>
 				<li><a href="#">메인</a></li>			
 				<li><a href="#">커짐이란?</a></li>
-				<li><a href="#">검색</a></li>
+				<li><a href="/ConnectGym/search">검색</a></li>
 				<li><a href="#">예약</a></li>
 				<li><a href="#">커뮤니티</a></li>
 			</ul>
