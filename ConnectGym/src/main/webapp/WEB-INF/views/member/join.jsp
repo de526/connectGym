@@ -6,6 +6,27 @@
 	#join .j_info{
 	
 	}
+	
+	#join td {
+		padding: 10px;
+	}
+	
+	#join .joinFormTbl{
+		margin: 0 auto;
+	}
+	
+	#join .join_wrap{
+	}
+	
+	#join .joinFormMenu{
+		margin: 0 auto;
+	}
+	
+	#join .join_panel{
+		width: 70%;
+		margin: 0 auto;
+	}
+	
 </style>
 <!-- jquery -->
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -23,7 +44,7 @@
 					method="post"
 					action= "/member/join.do">
 					
-				<table id="joinFormTbl">
+				<table class="joinFormTbl">
 				
 				<!-- 이메일(아이디) -->
 				<tr>
@@ -175,7 +196,7 @@
 					</td>
 				</tr>
 				</table>
-				<table id="joinFormMenu">
+				<table class="joinFormMenu">
 				<!-- 서밋 -->
 					<tr>
 						<td>

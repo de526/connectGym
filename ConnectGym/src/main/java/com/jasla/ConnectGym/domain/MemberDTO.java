@@ -13,7 +13,7 @@ public class MemberDTO {
 	private String memPw;
 	private String memNick;
 	private String memName;
-	private String memGender;
+	private char memGender;
 	private String memBirth;
 	private String memZipcode;
 	private String memAddr;
