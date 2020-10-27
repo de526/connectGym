@@ -3,9 +3,14 @@
 <!-- <mapper namespace="com.jasla.ConnectGym.mapper.GymMapper"> 인터페이스 자바 잡는거-->
 
 <mapper namespace="mapper.GymMapper"><!-- 이건 xml 잡는거고  -->
-	<!-- 전체 조회 -->
+	<!-- img table 조회 -->
 	<select id="imgSelect" resultType="String" parameterType="int">
 		SELECT img_name FROM img_T where gym_no = #{gymNo}
+	</select>
+	
+	<!-- gym table 조회 -->
+	<select id="gymSelect" resultType="com.jasla.ConnectGym.domain.GymDTO" parameterType="int">
+		SELECT * FROM gym_T where gym_no = #{gymNo}
 	</select>
 
 	

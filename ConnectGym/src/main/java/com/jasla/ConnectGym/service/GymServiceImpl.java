@@ -8,18 +8,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.jasla.ConnectGym.dao.GymDAO;
+import com.jasla.ConnectGym.domain.GymDTO;
 
 
 @Service
-public class GymImgServiceImpl implements GymService {
+public class GymServiceImpl implements GymService {
 
 	@Autowired
 	public GymDAO dao;
 		
 	@Override
 	public String selectAll(Model model, int gymNo) {
-		List<String> list = dao.selectAll(gymNo);
+		List<String> list = dao.imgSelect(gymNo);
 		model.addAttribute("list", list);
+		
+		GymDTO gdto = dao.gymSelect(gymNo);
+		model.addAttribute("gdto", gdto);
 		
 		return "gym/gymPage";
 	}

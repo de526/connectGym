@@ -12,6 +12,7 @@
     	display: flex;
     	padding-top: 20px;
     	padding-bottom: 20px;
+    	width: 1230px;
     }
     
     #gym .view{
@@ -100,6 +101,11 @@
 		margin-right: 10px;
 	}
 	
+	#gym .main_box{
+		width: 700px;
+		margin-left: 30px;
+	}
+	
 	#gym .fix_box{
 		width: 300px;
 		height: 400px;
@@ -151,12 +157,10 @@
     	<div class="nav_box">
 	    	<div class="navBar">
 	    		<ul>
-					<li><a href="#">센터소개</a></li>			
-					<li><a href="#">이용가격</a></li>
-					<li><a href="#">이용정보</a></li>
+					<li><a href="#center_info">센터소개</a></li>			
 					<li><a href="#">운영시간</a></li>
 					<li><a href="#">바로가기</a></li>
-					<li><a href="#">코 &nbsp;치</a></li>
+					<li><a href="#">트레이너</a></li>
 					<li><a href="#">위 &nbsp;치</a></li>
 				</ul>
 	    	</div>
@@ -174,14 +178,17 @@
     		<br/>
     		<br/>
     		<br/>
+    		<h1>${gdto.gymName }</h1>
     		<br/>
-    		<h1>투엑스휘트니스 분당점</h1>
+    		<p>${gdto.gymAddr }</p>
+    		<br  id="center_info" />
     		<br/>
-    		<p>경기도 성남시 분당고 정자일로 177 분당인텔리지2 3F</p>
     		<br/>
-    		<p>서울 강남권 및 유수의 지역에 16개의 지점을 직영으로 운영되는 투엑스휘트니스의 분당정자역점 입니다.</p>
     		<br/>
-    		<p>분당선/신분당선 정자역에서 도보 5분거리의 주상복합 인텔리지2에 위치해있습니다.</p>
+    		<h2>센터 소개</h2>
+    		<br/>
+    		<p>${gdto.gymInfo }</p>
+    		<br/>
     		<br/>
     		<br/>
     		<br/>
@@ -226,7 +233,7 @@
 	$(function(){
 		$(window).scroll(function(){  //스크롤하면 아래 코드 실행
 		       var num = $(this).scrollTop();  // 스크롤값
-		       if( num > 430 ){  // 스크롤을 36이상 했을 때
+		       if( num > 445 ){  // 스크롤을 440이상 했을 때
 		          $(".nav_box").css("position","fixed");
 		          $(".fix_box").css("position","fixed").css("top","150px");
 		       }else{
