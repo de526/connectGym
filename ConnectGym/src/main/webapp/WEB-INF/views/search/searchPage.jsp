@@ -48,6 +48,9 @@
 	text-align: center;
 	margin: 0 auto;
 }
+.gymList{
+	display: none;
+}
 </style>
 <script type="text/javascript">
 	//체크박스 라벨 누르면 색 변하기~
@@ -60,11 +63,26 @@
 			}
 		})
 	})
+	
+	function splitTag(tags){
+			//트레이너 태그 잘라서 span에 넣기!
+			var tag_arr = tags.split(',');
+			var tagHtml = '';
+			for(var i=0;i<tag_arr.length;i++){
+				tagHtml += '<span class="trainerTag">' + tag_arr[i] +'</span>';
+			}
+			document.write(tagHtml);
+		}
 </script>
 </head>
 <body>
 	<script type="text/javascript">
+		function changeList(flag) {
+			var includePage = '';
 
+			console.log('flag:' + flag);
+
+		}
 	</script>
 	<jsp:include page="../header.jsp" />
 	<div class="wrap">
@@ -76,23 +94,45 @@
 
 				<div class="searchIcon">
 					<img src="/ConnectGym/resources/images/material/selectGym.png"
-						onclick="changeList()" width="50" height="50"> <img
+						onclick="changeList('gym')" width="50" height="50"> <img
 						src="/ConnectGym/resources/images/material/selectTra.png"
-						onclick="changeList()" width="50" height="50">
+						onclick="changeList('trainer')" width="50" height="50">
 				</div>
 
 			</div>
-			<br />
-			<br />
+			<br /> <br />
 			<hr />
 			<br />
 			<div id="tagBox"></div>
 			<br />
 			<!-- 해당되는 트레이너/헬스장 리스트 가져오기 -->
-	
-			<div id="outList">
-				<jsp:include page="searchGym.jsp" />
-			</div>
+
+
+			 <div id="gymList">
+				<c:forEach items="#{gymList}" var="gym">
+					<div class="listOne">
+						<hr>
+						<h2><a href="/ConnectGym/gym?gymNo=${gym.gymNo}">${gym.gymName }</a>
+						</h2>
+						<br />${gym.gymAddr }
+						<!-- img_t 에서 gymNo값줘서 사진 받아오기 (1번사진을 대표사진으로) -->
+					</div>
+				</c:forEach>
+			</div> 
+			
+			<div id="traList">
+			<c:forEach items="#{traList}" var="trainer">
+				<hr>
+				<a href="dd?memNo=${trainer.memNo}">${trainer.memName }</a><br />
+				${trainer.memComment }<br />
+				<script type="text/javascript">
+					splitTag('${trainer.memTag}');			
+				</script>
+				
+			</c:forEach>
+		</div>
+
+
 		</div>
 
 	</div>

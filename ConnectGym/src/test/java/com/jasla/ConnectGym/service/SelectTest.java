@@ -28,14 +28,22 @@ public class SelectTest {
 	@Test
 	public void test() {
 		log.info("헬스장 이름 6개 가지고온거 맞나 보는 테스트 ㅎㅎ");
-		assertEquals(6, sqlSession.selectList("selectAll").size());	
+		assertEquals(6, sqlSession.selectList("selectGymAll").size());	
 	
 	}
+	
+	@Test
+	public void test2() {
+		log.info("트레이너 다 가져오기 테스트 ㅎㅎ");
+		assertEquals(5, sqlSession.selectList("selectTraAll").size());	
+	
+	}
+	
 	@Test
 	public void MemEmailtest() {
 		log.info("이메일 중복검사 테스트");
 		assertEquals(1, (int) sqlSession.selectOne("isEnableEmail", "yoooon0104@gmail.com"));	
-		
 	}
 
+	
 }

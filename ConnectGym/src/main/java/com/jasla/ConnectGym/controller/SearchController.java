@@ -27,9 +27,12 @@ public class SearchController {
 	// DB 연결 확인하는 컨트롤러
 	@RequestMapping("/search")
 	public String dbtest(Model model) {
-		log.info("db연결 테스트 컨트롤러");
-		model.addAttribute("list", service.selectAll());
-		//헬스장 전체 정보 가져오기
+		log.info("검색 페이지 모델 가지고 가는곳 ");
+		//메인에 기본으로 트레이너 정보먼저 뿌리기!
+		
+		model.addAttribute("gymList", service.selectGymAll());
+		model.addAttribute("traList", service.selectTraAll());
+		log.info(service.selectTraAll());
 		return "search/searchPage";
 	}
 	
@@ -39,10 +42,14 @@ public class SearchController {
 			@RequestParam("search") String searchValue) {
 		log.info("ajax test@@@");
 		log.info(tags.toString());
-		log.info(searchValue);
+		log.info(searchValue);		
 		
-		
-		return service.selectAll();
+		return service.selectGymAll();
 	}
+	
+	/*@RequestMapping("/searchTrainer.do")
+	@ResponseBody
+	public List<mem>*/
+	
 
 }

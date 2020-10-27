@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jasla.ConnectGym.domain.GymDTO;
+import com.jasla.ConnectGym.domain.MemberDTO;
 
 @Repository
 public class SearchDAOImpl implements SearchDAO{
@@ -15,8 +16,13 @@ public class SearchDAOImpl implements SearchDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<GymDTO> selectAll() {		
-		return sqlSession.selectList("selectAll");
+	public List<GymDTO> selectGymAll() {		
+		return sqlSession.selectList("selectGymAll");
+	}
+
+	@Override
+	public List<MemberDTO> selectTraAll() {		
+		return sqlSession.selectList("selectTraAll");
 	}
 
 }

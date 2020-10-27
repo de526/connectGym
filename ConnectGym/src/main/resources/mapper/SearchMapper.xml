@@ -4,9 +4,11 @@
 
 <mapper namespace="mapper.SearchMapper"><!-- 이건 xml 잡는거고  -->
 	<!-- 전체 조회 -->
-	<select id="selectAll" resultType="com.jasla.ConnectGym.domain.GymDTO">
+	<select id="selectGymAll" resultType="com.jasla.ConnectGym.domain.GymDTO">
 		SELECT * FROM gym_T
 	</select>
 
-	
+	<select id="selectTraAll" resultType="com.jasla.ConnectGym.domain.MemberDTO">
+		select * from member_t where mem_level = 50
+	</select>
 </mapper>
