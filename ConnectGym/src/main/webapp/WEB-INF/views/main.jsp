@@ -19,7 +19,7 @@
 	
 		<div class="info">
 			<div class="info_icon">
-				<img src="/ConnectGym/resources/test_img/tel_icon.png"/>
+				<img src="/ConnectGym/resources/images/test/tel_icon.png"/>
 			</div>
 			<div>
 				<p>고객센터 : 1588-3082</p>
@@ -29,7 +29,7 @@
 		
 	
 		<div class="banner">
-			<img src="/ConnectGym/resources/test_img/main1.jpg"/>
+			<img src="/ConnectGym/resources/images/test/main1.jpg"/>
 			
 			<div class="banner_button">
 				<div class="banner_button_circle1" onclick="circle(1)">
@@ -42,14 +42,14 @@
 		<div class="contents">
 			<div class="top">
 				<div class="top_title">
-					<img src="/ConnectGym/resources/test_img/top.png"/>
+					<img src="/ConnectGym/resources/images/test/top.png"/>
 					<p>TOP 트레이너</p>
 				</div>
 				
 				<div class="top_img">
-					<img src="/ConnectGym/resources/test_img/trainer1.jpg"/>
-					<img src="/ConnectGym/resources/test_img/trainer2.jpg"/>
-					<img src="/ConnectGym/resources/test_img/trainer3.jpg"/>
+					<img src="/ConnectGym/resources/images/test/trainer1.jpg"/>
+					<img src="/ConnectGym/resources/images/test/trainer2.jpg"/>
+					<img src="/ConnectGym/resources/images/test/trainer3.jpg"/>
 				</div>
 			</div>
 

@@ -130,17 +130,17 @@
 	    	<div class="view">
 	    		
 	    		<div class="view_main">
-	    			<img alt="" src="/ConnectGym/resources/gym_img/${list.get(0) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(0) }" />
 	    		</div>
 	    		
 	    		<div class="view_sub1">
-	    			<img alt="" src="/ConnectGym/resources/gym_img/${list.get(1) }" />
-	    			<img alt="" src="/ConnectGym/resources/gym_img/${list.get(2) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(1) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(2) }" />
 	    		</div>
 	    		
 	    		<div class="view_sub2">
-	    			<img alt="" src="/ConnectGym/resources/gym_img/${list.get(3) }" />
-	    			<img alt="" src="/ConnectGym/resources/gym_img/${list.get(4) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(3) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(4) }" />
 	    		</div>
 	    		
 	    	</div>
@@ -161,8 +161,8 @@
 	    	</div>
 	    	
 	    	<div class="button">
-	    		<img src="/ConnectGym/resources/test_img/top.png">
-	    		<img src="/ConnectGym/resources/test_img/top.png">
+	    		<img src="/ConnectGym/resources/images/test/top.png">
+	    		<img src="/ConnectGym/resources/images/test/top.png">
 	    	</div>
     	</div>
     	
@@ -216,7 +216,7 @@
     	
     	
     	<div class="fix_box">
-    		<img src="/ConnectGym/resources/gym_img/${list.get(0) }">
+    		<img src="/ConnectGym/resources/images/gym/${list.get(0) }">
     	</div>
     </div>
     
