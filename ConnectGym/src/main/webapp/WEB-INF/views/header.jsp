@@ -35,7 +35,7 @@
 	<div id="header">
 		<div class="logo">
 			<a href="/ConnectGym/">
-				<img src="/ConnectGym/resources/css_img/top-logo.png">
+				<img src="/ConnectGym/resources/images/material/top-logo.png">
 			</a>
 		</div>
 		
