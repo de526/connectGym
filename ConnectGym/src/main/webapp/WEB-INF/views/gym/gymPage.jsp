@@ -11,6 +11,7 @@
     #gym .view_box{
     	display: flex;
     	padding-top: 20px;
+    	padding-bottom: 20px;
     }
     
     #gym .view{
@@ -61,7 +62,7 @@
 		height: 50px;
 		display: inline-flex;
 		justify-content: space-between;
-		padding-top: 40px;
+		padding-top: 20px;
 		padding-left: 10px;
 		top: 0;
 		background: #fcfcfc;
