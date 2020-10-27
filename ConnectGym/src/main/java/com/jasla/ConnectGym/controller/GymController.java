@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.jasla.ConnectGym.service.GymImgService;
+import com.jasla.ConnectGym.service.GymService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 public class GymController {
 
 	@Autowired
-	public GymImgService service;
+	public GymService service;
 
 	// DB 연결 확인하는 컨트롤러
 	@RequestMapping("/gym")

@@ -2,7 +2,6 @@ package com.jasla.ConnectGym.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,10 +19,9 @@ public class HomeController {
 	
 	// 테스트용 메인가는 컨트롤러
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home() {
 		log.info("첫번째 컨트롤러");
 	
-		model.addAttribute("test", "테스트중!!");
 		return "main";
 	}
 

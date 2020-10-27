@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.jasla.ConnectGym.dao.GymImgDAO;
+import com.jasla.ConnectGym.dao.GymDAO;
 
 
 @Service
-public class GymImgServiceImpl implements GymImgService {
+public class GymImgServiceImpl implements GymService {
 
 	@Autowired
-	public GymImgDAO dao;
+	public GymDAO dao;
 		
 	@Override
 	public String selectAll(Model model, int gymNo) {

@@ -9,14 +9,14 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class GymImgDAOImpl implements GymImgDAO{
+public class GymImgDAOImpl implements GymDAO{
 
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
 	public List<String> selectAll(int gymNo) {		
-		return sqlSession.selectList("gymImgSelectAll", gymNo);
+		return sqlSession.selectList("imgSelect", gymNo);
 	}
 
 }
