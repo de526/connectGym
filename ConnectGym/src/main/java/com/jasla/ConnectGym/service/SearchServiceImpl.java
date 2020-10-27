@@ -5,18 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jasla.ConnectGym.dao.GymDAO;
-import com.jasla.ConnectGym.domain.GymVO;
+import com.jasla.ConnectGym.dao.SearchDAO;
+import com.jasla.ConnectGym.domain.GymDTO;
 
 
 @Service
-public class GymServiceImpl implements GymService {
+public class SearchServiceImpl implements SearchService {
 
 	@Autowired
-	public GymDAO dao;
+	public SearchDAO dao;
 		
 	@Override
-	public List<GymVO> selectAll() {
+	public List<GymDTO> selectAll() {
 		return dao.selectAll();
 	}
 

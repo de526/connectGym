@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jasla.ConnectGym.service.GymService;
+import com.jasla.ConnectGym.service.SearchService;
 
 
 
@@ -14,7 +14,7 @@ import com.jasla.ConnectGym.service.GymService;
 public class MemberController {
 
 	@Autowired
-	public GymService service;
+	public SearchService service;
 	
 	// 테스트용 헤더가는 컨트롤러
 	@RequestMapping(value = "/join", method = RequestMethod.GET)

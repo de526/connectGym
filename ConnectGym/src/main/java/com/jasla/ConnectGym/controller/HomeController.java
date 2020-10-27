@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jasla.ConnectGym.service.GymService;
+import com.jasla.ConnectGym.service.SearchService;
 
 
 import lombok.extern.log4j.Log4j;
@@ -16,7 +16,7 @@ import lombok.extern.log4j.Log4j;
 public class HomeController {
 
 	@Autowired
-	public GymService service;
+	public SearchService service;
 	
 	// 테스트용 메인가는 컨트롤러
 	@RequestMapping(value = "/", method = RequestMethod.GET)

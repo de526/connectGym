@@ -6,15 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jasla.ConnectGym.service.GymService;
+import com.jasla.ConnectGym.service.SearchService;
 
 
 
 @Controller
-public class HomeController3 {
+public class BoardController {
 
 	@Autowired
-	public GymService service;
+	public SearchService service;
 	
 	// 테스트용 게시판가는 컨트롤러
 	@RequestMapping(value = "/boardList", method = RequestMethod.GET)

@@ -3,7 +3,7 @@ package com.jasla.ConnectGym.domain;
 import lombok.Data;
 
 @Data
-public class GymVO {
+public class GymDTO {
 	private int gymNo;
 	private String gymName;
 	private String gymInfo;
