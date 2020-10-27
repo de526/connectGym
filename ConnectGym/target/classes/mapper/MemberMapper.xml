@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="com.jasla.ConnectGym.mapper.GymMapper"> 인터페이스 자바 잡는거-->
+
+<mapper namespace="mapper.MemberMapper"><!-- 이건 xml 잡는거고  -->
+	<!-- 이메일 중복검사 -->
+	<select id="isEnableEmail" parameterType="String" resultType="int">
+		select count(mem_mail) from member_t where mem_mail = #{mem_mail}
+	</select>
+</mapper>

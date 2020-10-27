@@ -31,5 +31,11 @@ public class SelectTest {
 		assertEquals(6, sqlSession.selectList("selectAll").size());	
 	
 	}
+	@Test
+	public void MemEmailtest() {
+		log.info("이메일 중복검사 테스트");
+		assertEquals(1, (int) sqlSession.selectOne("isEnableEmail", "yoooon0104@gmail.com"));	
+		
+	}
 
 }

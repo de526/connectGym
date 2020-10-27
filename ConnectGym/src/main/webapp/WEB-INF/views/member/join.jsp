@@ -35,6 +35,107 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/ConnectGym/resources/js/join.js" charset="UTF-8"></script>
 
+<script>
+
+function emailCheck(){
+	
+	$.ajax({
+		 url : '/ConnectGym/emailCheck.do',
+        type : 'post',
+        dataType:'text',
+        data : {
+       	 email : $('#mem_mail').val()
+        },
+        success : function(data) {
+          
+           console.log("이메일 중복 점검 수신 !");
+           
+           alert(data);
+//        	// 중복 점검 체크 플래그 재설정
+//           if (data.trim() == '사용할 수 있는 이메일입니다.') {
+//       	   // 메시지 초기화 : 정상적일 경우는 메시지 표기 불필요할 경우
+//       	   $("#mem_mail_err").text("");
+//       	   emailCheckFlag = true;
+//           } else {
+//          	   $("#mem_mail_err").text(data);
+//              emailCheckFlag = false;
+//           }
+        	
+           // 플래그 인쇄
+               console.log("idCheckFlag : "+ idCheckFlag);
+               console.log("emailCheckFlag : "+ emailCheckFlag);
+               console.log("phoneCheckFlag : "+ phoneCheckFlag);
+          
+       }, // success
+        
+        error : function(xhr, status) {
+           alert("실패")
+       	 //console.log(xhr+" : "+status); // 에러 코드
+       }
+
+	}); // ajax
+	
+	
+	
+}
+
+$("#mem_mail").blur(function() {
+	
+	console.log("이메일 중복점검");
+	
+	// 정규식 점검으로 유효 데이터 전송
+	var regexEmail = new RegExp($("#mem_mail").attr("pattern"));
+	var mem_mail = $("#mem_mail").val();
+
+	if (regexEmail.test(mem_mail)) { // 정규식 점검 통과
+	
+    	$.ajax({
+    		 url : '/ConnectGym/emailCheck.do',
+             type : 'post',
+             dataType:'text',
+             data : {
+            	 email : $('#mem_mail').val()
+             },
+             success : function(data) {
+               
+                console.log("이메일 중복 점검 수신 !");
+                
+                alert(data);
+//             	// 중복 점검 체크 플래그 재설정
+//                if (data.trim() == '사용할 수 있는 이메일입니다.') {
+//            	   // 메시지 초기화 : 정상적일 경우는 메시지 표기 불필요할 경우
+//            	   $("#mem_mail_err").text("");
+//            	   emailCheckFlag = true;
+//                } else {
+//               	   $("#mem_mail_err").text(data);
+//                   emailCheckFlag = false;
+//                }
+             	
+                // 플래그 인쇄
+	                console.log("idCheckFlag : "+ idCheckFlag);
+	                console.log("emailCheckFlag : "+ emailCheckFlag);
+	                console.log("phoneCheckFlag : "+ phoneCheckFlag);
+               
+            }, // success
+             
+             error : function(xhr, status) {
+                alert("실패")
+            	 //console.log(xhr+" : "+status); // 에러 코드
+            }
+ 
+    	}); // ajax
+
+	} else { // 정규식 점검 실패
+		
+		// 에러 메시징
+		$("#mem_mail_err").text(($("#mem_mail").attr("title")));
+		// 재입력 대기
+		$("#mem_mail").focus();
+	} //
+	
+});
+</script>
+
 	<div id="join">
 		<div class="join_wrap">
 			<div class="join_panel">
@@ -59,6 +160,13 @@
 								required
 								title="이메일을 입력하십시오">
 						<span id="mem_mail_err" class="err_msg"></span>
+						
+						<input type="button"
+								id="joinAddressSearchBtn"
+								name="joinAddressSearchBtn"
+								value="중복검사"
+								onClick="emailCheck()"><br>		
+					</td>
 					</td>
 				</tr>
 				<!-- 패스워드 -->

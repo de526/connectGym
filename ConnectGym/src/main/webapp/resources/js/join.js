@@ -65,26 +65,26 @@ $("#mem_mail").blur(function() {
 	if (regexEmail.test(mem_mail)) { // 정규식 점검 통과
 	
     	$.ajax({
-    		 // url : '${pageContext.request.contextPath}/member/emailCheck.do',
-    		 url : rootPath + '/member/emailCheck.do',
+    		 url : '/ConnectGym/emailCheck.do',
              type : 'post',
              dataType:'text',
              data : {
-                 mem_mail : $('#mem_mail').val()
+            	 email : $('#mem_mail').val()
              },
              success : function(data) {
                
                 console.log("이메일 중복 점검 수신 !");
                 
-             	// 중복 점검 체크 플래그 재설정
-                if (data.trim() == '사용할 수 있는 이메일입니다.') {
-            	   // 메시지 초기화 : 정상적일 경우는 메시지 표기 불필요할 경우
-            	   $("#mem_mail_err").text("");
-            	   emailCheckFlag = true;
-                } else {
-               	   $("#mem_mail_err").text(data);
-                   emailCheckFlag = false;
-                }
+                alert(data);
+//             	// 중복 점검 체크 플래그 재설정
+//                if (data.trim() == '사용할 수 있는 이메일입니다.') {
+//            	   // 메시지 초기화 : 정상적일 경우는 메시지 표기 불필요할 경우
+//            	   $("#mem_mail_err").text("");
+//            	   emailCheckFlag = true;
+//                } else {
+//               	   $("#mem_mail_err").text(data);
+//                   emailCheckFlag = false;
+//                }
              	
                 // 플래그 인쇄
 	                console.log("idCheckFlag : "+ idCheckFlag);
@@ -94,7 +94,8 @@ $("#mem_mail").blur(function() {
             }, // success
              
              error : function(xhr, status) {
-                console.log(xhr+" : "+status); // 에러 코드
+                alert("실패")
+            	 //console.log(xhr+" : "+status); // 에러 코드
             }
  
     	}); // ajax
@@ -203,7 +204,7 @@ $("#mem_phone").blur(function() {
 	//alert("기본주소 : "+$("#memberAddressBasic").val());
 	//alert("상세주소 : "+$("#memberAddressDetail").val());
 	    	
-		if ($("#memberZip").val() != "" &&
+		if ($("#member_zipcode").val() != "" &&
 		$("#mem_addr").val() != "" &&
 		!regexAddressDetail.test(memberAddressDetail) ) 
 		{
