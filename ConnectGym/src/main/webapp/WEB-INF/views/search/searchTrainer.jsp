@@ -19,15 +19,14 @@
 	}
 	</style>
 	<script type="text/javascript">
-		function splitTag(tags) {
+		function splitTag(tags,num) {
 			//트레이너 태그 잘라서 span에 넣기!
 			var tag_arr = tags.split(',');
 			var tagHtml = '';
 			for (var i = 0; i < tag_arr.length; i++) {
 				tagHtml += '<span class="trainerTag">' + tag_arr[i] + '</span>';
 			}
-			document.getElementById(this).innerHTML = tagHtml;
-			//document.write(tagHtml);
+			document.getElementById('tra_tag'+num).innerHTML = tagHtml;
 		}
 	</script>
 <div id="testt">
@@ -36,15 +35,14 @@
 		<div class="trainerResult">
 			<hr>
 			<h2 id="trainerName">
-				<a href="/ConnectGym/trainer?memNo=${trainer.memNo}">${trainer.memName }</a>
+				<a href="/ConnectGym/trainer?memNo=${trainer.memNo}">${trainer.memNick }</a>
 			</h2>
 			${trainer.memComment }<br /> <br />
-			<!-- <script type="text/javascript">
-				splitTag('${trainer.memTag }');
-			</script> -->
-			<div id="tra_tag"></div>
-
-			${trainer.memTag }
+			<div id="tra_tag${trainer.memNo}"></div>
+			<script type="text/javascript">
+				splitTag('${trainer.memTag }','${trainer.memNo}')
+			</script>
+	
 		</div>
 	</c:forEach>
 </div>

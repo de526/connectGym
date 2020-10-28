@@ -31,11 +31,18 @@ public class SearchServiceImpl implements SearchService {
 
 	@Override
 	public List<MemberDTO> trainerSearchResult(List<String> tags, String searchValue) {
-		String query = "(select * from member_t where mem_nick like '%"+searchValue+"%') where ";
 		
-		for(int i=0;i<tags.size();i++) {
-			if(i==0) {
-				query += " mem_tag like '%"+tags.get(i)+"%'";
+		String query = "";
+		
+		if(!searchValue.equals("")) {
+			query = "(select * from member_t where mem_nick like '%"+searchValue+"%')";
+		}else {
+			query = "member_t";
+		}
+		
+		for(int i=1;i<tags.size();i++) {
+			if(i==1) {
+				query += " where mem_tag like '%"+tags.get(i)+"%'";
 			}else {
 				query += " and mem_tag like '%"+tags.get(i)+"%'";
 			}

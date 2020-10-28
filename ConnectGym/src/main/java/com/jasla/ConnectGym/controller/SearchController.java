@@ -36,19 +36,6 @@ public class SearchController {
 		return "search/searchPage";
 	}
 	
-/*	@RequestMapping("/searchList.do")
-	@ResponseBody
-	public List<MemberDTO> searchList(@RequestParam("tags[]") List<String> tags,
-			@RequestParam("search") String searchValue,Model model) {
-		
-		//model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
-		
-		if(tags.size()==0 & searchValue.length()==0) {
-			return service.selectTraAll();
-		}
-			
-		return service.trainerSearchResult(tags, searchValue);
-	}*/
 	
 	@RequestMapping("/searchList.do")
 	public String searchList(@RequestParam("tags[]") List<String> tags,
@@ -57,7 +44,8 @@ public class SearchController {
 		model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
 		
 		log.info(service.trainerSearchResult(tags, searchValue));
-		if(tags.size()==0 & searchValue.length()==0) {
+		
+		if(tags.get(0).equals("") & searchValue.equals("")) {
 			model.addAttribute("traList",service.selectTraAll());
 		}
 			

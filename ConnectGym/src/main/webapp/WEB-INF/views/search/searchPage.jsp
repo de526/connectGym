@@ -7,34 +7,7 @@
 <meta charset="UTF-8">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"
 	type="text/javascript"></script>
-	<style>
-.trainerTag {
-	border-radius: 5px;
-	padding: 3px;
-	text-align: center;
-	margin: 5px;
-	background-color: grey;
-}
 
-.trainerResult {
-	margin: 10px;
-}
-
-#trainerName h2 {
-	margin: 5px;
-}
-</style>
-<script type="text/javascript">
-	function splitTag(tags) {
-		//트레이너 태그 잘라서 span에 넣기!
-		var tag_arr = tags.split(',');
-		var tagHtml = '';
-		for (var i = 0; i < tag_arr.length; i++) {
-			tagHtml += '<span class="trainerTag">' + tag_arr[i] + '</span>';
-		}
-		document.write(tagHtml);
-	}
-</script>
 <style>
 .cls_tag {
 	display: none;
@@ -134,7 +107,7 @@
 			</div>	
 						
 			<div id="traList">		
-			<jsp:include page="searchTrainer.jsp" />		
+				<jsp:include page="searchTrainer.jsp" />		
 			</div>
 
 
@@ -161,7 +134,7 @@
 		document.getElementById('tagBox').innerHTML = tagContent;
 	</script>
 	<script>
-		var searchValue = null;//button눌렀을때 검색값 저장하는 변수
+		var searchValue = '';//button눌렀을때 검색값 저장하는 변수
 		function get_searchBox() {
 			searchValue = document.getElementById("searchBox").value;
 			//변수값저장하고 태그확인하면서 리스트 가져오기
@@ -170,7 +143,7 @@
 
 		function get_searchList() {
 			var tags = document.getElementsByName("checkbox_tag");
-			var checkedTag = new Array();
+			var checkedTag = [''];
 			//체크된거 배열에 넣기
 			for (var i = 0; i < tags.length; i++) {
 				if (tags[i].checked == true) {
@@ -180,7 +153,8 @@
 			console.log(checkedTag);
 			console.log(searchValue);
 			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
-
+			
+			
 
 			$.ajax({
 				url : "/ConnectGym/searchList.do",
@@ -194,7 +168,7 @@
 				success : function(result) {
 					//console.log(result);
 					//var html = $('<div>').html(result);
-					console.log(result);
+					//console.log(result);
 					/* var content = html.find('div#testt').html();
 					$('traList').html(content);  */
 					//document.getElementById('traList').innerHTML(fragment);
