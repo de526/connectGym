@@ -133,7 +133,8 @@
 				<jsp:include page="searchGym.jsp" />
 			</div>	
 						
-			<div id="traList">				
+			<div id="traList">		
+			<jsp:include page="searchTrainer.jsp" />		
 			</div>
 
 
@@ -190,14 +191,14 @@
 				},
 				cache: false,
 				dataType : "text",
-				success : function(fragment) {
+				success : function(result) {
 					//console.log(result);
 					//var html = $('<div>').html(result);
-					console.log(fragment);
+					console.log(result);
 					/* var content = html.find('div#testt').html();
 					$('traList').html(content);  */
 					//document.getElementById('traList').innerHTML(fragment);
-					$("#traList").html(fragment);
+					$('#traList').html(result);
 					//$("#traList").replaceWith(fragment);
 					
 
