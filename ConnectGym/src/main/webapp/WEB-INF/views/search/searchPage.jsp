@@ -7,6 +7,34 @@
 <meta charset="UTF-8">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"
 	type="text/javascript"></script>
+	<style>
+.trainerTag {
+	border-radius: 5px;
+	padding: 3px;
+	text-align: center;
+	margin: 5px;
+	background-color: grey;
+}
+
+.trainerResult {
+	margin: 10px;
+}
+
+#trainerName h2 {
+	margin: 5px;
+}
+</style>
+<script type="text/javascript">
+	function splitTag(tags) {
+		//트레이너 태그 잘라서 span에 넣기!
+		var tag_arr = tags.split(',');
+		var tagHtml = '';
+		for (var i = 0; i < tag_arr.length; i++) {
+			tagHtml += '<span class="trainerTag">' + tag_arr[i] + '</span>';
+		}
+		document.write(tagHtml);
+	}
+</script>
 <style>
 .cls_tag {
 	display: none;
@@ -103,9 +131,9 @@
 			<!-- 해당되는 트레이너/헬스장 리스트 가져오기 -->
 			<div id="gymList">
 				<jsp:include page="searchGym.jsp" />
-			</div>				
-			<div id="traList">
-				<jsp:include page="searchTrainer.jsp" />
+			</div>	
+						
+			<div id="traList">				
 			</div>
 
 
@@ -134,7 +162,7 @@
 	<script>
 		var searchValue = null;//button눌렀을때 검색값 저장하는 변수
 		function get_searchBox() {
-			searchValue = document.getElementById("serachBox").value;
+			searchValue = document.getElementById("searchBox").value;
 			//변수값저장하고 태그확인하면서 리스트 가져오기
 			get_searchList();
 		}
@@ -148,7 +176,11 @@
 					checkedTag.push(tags[i].value);
 				}
 			}
+			console.log(checkedTag);
+			console.log(searchValue);
 			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
+
+
 			$.ajax({
 				url : "/ConnectGym/searchList.do",
 				type : "post",
@@ -156,13 +188,18 @@
 					"tags" : checkedTag,
 					"search" : searchValue
 				},
-				dataType : "json",
-				success : function(json) {
-					console.log(json[0].gymNo)
-					/* $.each(json,function(index,item){
-						console.log(index)
-						console.log(item.gymNo)
-					}) */
+				cache: false,
+				dataType : "text",
+				success : function(fragment) {
+					//console.log(result);
+					//var html = $('<div>').html(result);
+					console.log(fragment);
+					/* var content = html.find('div#testt').html();
+					$('traList').html(content);  */
+					//document.getElementById('traList').innerHTML(fragment);
+					$("#traList").html(fragment);
+					//$("#traList").replaceWith(fragment);
+					
 
 				},
 				error : function() {

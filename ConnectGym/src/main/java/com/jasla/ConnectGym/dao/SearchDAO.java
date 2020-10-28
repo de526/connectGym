@@ -8,4 +8,5 @@ import com.jasla.ConnectGym.domain.MemberDTO;
 public interface SearchDAO {
 	List<GymDTO> selectGymAll();  
 	List<MemberDTO> selectTraAll();
+	List<MemberDTO> trainerSearchResult(String query);
 }

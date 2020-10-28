@@ -36,5 +36,7 @@
 		<constructor-arg ref="sqlSessionFactory"
 			name="sqlSessionFactory" />
 	</bean>
+	
+	<mybatis-spring:scan base-package="com.jasla.ConnectGym.mapper"/>
 
 </beans>

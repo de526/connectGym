@@ -25,4 +25,9 @@ public class SearchDAOImpl implements SearchDAO{
 		return sqlSession.selectList("selectTraAll");
 	}
 
+	@Override
+	public List<MemberDTO> trainerSearchResult(String query) {
+		return sqlSession.selectList("trainerSearchResult",query);
+	}
+
 }

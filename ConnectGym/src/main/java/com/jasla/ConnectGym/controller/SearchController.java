@@ -1,8 +1,6 @@
 package com.jasla.ConnectGym.controller;
 
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jasla.ConnectGym.domain.GymDTO;
+import com.jasla.ConnectGym.domain.MemberDTO;
 import com.jasla.ConnectGym.service.SearchService;
 
 import lombok.extern.log4j.Log4j;
@@ -38,20 +36,33 @@ public class SearchController {
 		return "search/searchPage";
 	}
 	
-	@RequestMapping("/searchList.do")
+/*	@RequestMapping("/searchList.do")
 	@ResponseBody
-	public List<GymDTO> searchList(@RequestParam("tags[]") List<String> tags,
-			@RequestParam("search") String searchValue) {
-		log.info("ajax test@@@");
-		log.info(tags.toString());
-		log.info(searchValue);		
+	public List<MemberDTO> searchList(@RequestParam("tags[]") List<String> tags,
+			@RequestParam("search") String searchValue,Model model) {
 		
-		return service.selectGymAll();
-	}
+		//model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
+		
+		if(tags.size()==0 & searchValue.length()==0) {
+			return service.selectTraAll();
+		}
+			
+		return service.trainerSearchResult(tags, searchValue);
+	}*/
 	
-	/*@RequestMapping("/searchTrainer.do")
-	@ResponseBody
-	public List<mem>*/
+	@RequestMapping("/searchList.do")
+	public String searchList(@RequestParam("tags[]") List<String> tags,
+			@RequestParam("search") String searchValue,Model model) {
+		
+		model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
+		
+		log.info(service.trainerSearchResult(tags, searchValue));
+		if(tags.size()==0 & searchValue.length()==0) {
+			model.addAttribute("traList",service.selectTraAll());
+		}
+			
+		return "search/searchTrainer";
+	}
 	
 
 }
