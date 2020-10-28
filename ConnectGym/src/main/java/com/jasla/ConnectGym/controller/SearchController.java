@@ -1,6 +1,8 @@
 package com.jasla.ConnectGym.controller;
 
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -28,7 +30,7 @@ public class SearchController {
 	@RequestMapping("/search")
 	public String dbtest(Model model) {
 		log.info("검색 페이지 모델 가지고 가는곳 ");
-		//메인에 기본으로 트레이너 정보먼저 뿌리기!
+		//메인에 기본으로 트레이너 정보먼저 뿌리기!		
 		
 		model.addAttribute("gymList", service.selectGymAll());
 		model.addAttribute("traList", service.selectTraAll());
