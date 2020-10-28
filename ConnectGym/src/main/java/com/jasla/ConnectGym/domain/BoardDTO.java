@@ -16,4 +16,5 @@ public class BoardDTO {
 	private char boIssecret;
 	private char boDel;
 	private int boHit;
+	private String boDate;
 }

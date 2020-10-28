@@ -31,7 +31,7 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container1">
 	<div id="header">
 		<div class="logo">
 			<a href="/ConnectGym/">
@@ -45,7 +45,7 @@
 				<li><a href="#">커짐이란?</a></li>
 				<li><a href="/ConnectGym/search">검색</a></li>
 				<li><a href="#">예약</a></li>
-				<li><a href="#">커뮤니티</a></li>
+				<li><a href="/ConnectGym/board">커뮤니티</a></li>
 			</ul>
 		</div>
 		
