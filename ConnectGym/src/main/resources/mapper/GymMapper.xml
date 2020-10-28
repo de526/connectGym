@@ -12,6 +12,11 @@
 	<select id="gymSelect" resultType="com.jasla.ConnectGym.domain.GymDTO" parameterType="int">
 		SELECT * FROM gym_T where gym_no = #{gymNo}
 	</select>
+	
+	<!-- member table 조회 -->
+	<select id="gymTSelect" resultType= "com.jasla.ConnectGym.domain.MemberDTO" parameterType="int">
+		SELECT * FROM member_T where gym_no = #{gymNo} and mem_level=50
+	</select>
 
 	
 </mapper>

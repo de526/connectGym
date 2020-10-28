@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
     
     <style>
     
@@ -113,16 +116,45 @@
 		top: 600px;
 		right: 20%;
 		background-color: #040303c7;
-		display: flex;
 		z-index: 10;
+		text-align: center;
+		color: white;
 	}
 	
 	#gym .fix_box img{
 		width: 250px;
 		height: 200px;
-		margin: auto;
-   	 	margin-top: 20px;
+   	 	margin: 20px 0;
 	}
+	
+	#gym .fix_box div{
+		width: 250px;
+	    height: 30px;
+	    margin: auto;
+	    margin-top: 50;
+	    padding-top: 10px;
+		border: solid 1px #77777770;
+	}
+	
+	#gym .trainer{
+		display: inline-flex;
+		width: 300px;
+	    height: 110px;
+  		padding: 10px;
+	    border: solid 1px #77777770;
+	}
+	
+	#gym .trainer div img{
+		width: 100px;
+	    height: 100px;
+	    margin-right: 20px;
+	}
+	
+	#gym #map{
+		width: 600px;
+		height: 350px;
+	}
+	
 	
 	</style>
 	
@@ -137,17 +169,17 @@
 	    	<div class="view">
 	    		
 	    		<div class="view_main">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(0) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" />
 	    		</div>
 	    		
 	    		<div class="view_sub1">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(1) }" />
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(2) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(1) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(2) }" />
 	    		</div>
 	    		
 	    		<div class="view_sub2">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(3) }" />
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${list.get(4) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(3) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(4) }" />
 	    		</div>
 	    		
 	    	</div>
@@ -158,10 +190,9 @@
 	    	<div class="navBar">
 	    		<ul>
 					<li><a href="#center_info">센터소개</a></li>			
-					<li><a href="#">운영시간</a></li>
-					<li><a href="#">바로가기</a></li>
-					<li><a href="#">트레이너</a></li>
-					<li><a href="#">위 &nbsp;치</a></li>
+					<li><a href="#center_time">운영시간</a></li>
+					<li><a href="#center_trainer">트레이너</a></li>
+					<li><a href="#center_Addr">위 &nbsp;치</a></li>
 				</ul>
 	    	</div>
 	    	
@@ -178,53 +209,86 @@
     		<br/>
     		<br/>
     		<br/>
-    		<h1>${gdto.gymName }</h1>
-    		<br/>
-    		<p>${gdto.gymAddr }</p>
+    		
+	    		<h1>${gdto.gymName }</h1>
+	    		<br/>
+	    		<p>${gdto.gymAddr }</p>
+    		
     		<br  id="center_info" />
     		<br/>
     		<br/>
     		<br/>
-    		<h2>센터 소개</h2>
-    		<br/>
-    		<p>${gdto.gymInfo }</p>
-    		<br/>
-    		<br/>
-    		<br/>
-    		<br/>
-    		<br/>
-    		<h1>투엑스휘트니스 분당점</h1>
-    		<br/>
-    		<p>경기도 성남시 분당고 정자일로 177 분당인텔리지2 3F</p>
-    		<br/>
-    		<p>서울 강남권 및 유수의 지역에 16개의 지점을 직영으로 운영되는 투엑스휘트니스의 분당정자역점 입니다.</p>
-    		<br/>
-    		<p>분당선/신분당선 정자역에서 도보 5분거리의 주상복합 인텔리지2에 위치해있습니다.</p>
-    		<br/>
-    		<br/>
-    		<br/>
-    		<br/>
-    		<h1>투엑스휘트니스 분당점</h1>
-    		<br/>
-    		<p>경기도 성남시 분당고 정자일로 177 분당인텔리지2 3F</p>
-    		<br/>
-    		<p>서울 강남권 및 유수의 지역에 16개의 지점을 직영으로 운영되는 투엑스휘트니스의 분당정자역점 입니다.</p>
-    		<br/>
-    		<p>분당선/신분당선 정자역에서 도보 5분거리의 주상복합 인텔리지2에 위치해있습니다.</p>
-    		<br/>
+    		
+	    		<h2>센터 소개</h2>
+	    		<br/>
+	    		<p>${gdto.gymInfo }</p>
+	    		
+    		<br id="center_time" />
     		<br/>
     		<br/>
     		<br/>
     		
+	    		<h2>운영 시간</h2>
+	    		<br/>
+	    		<p>평일 ${gdto.gymWeekday }</p>
+	    		
+	    		<c:if test="${not empty gdto.gymSaturday }">
+	    		<p>토요일 ${gdto.gymSaturday }</p>
+	    		</c:if>
+	    		
+	    		<c:if test="${not empty gdto.gymSunday }">
+	    		<p>일요일 ${gdto.gymSunday }</p>
+	    		</c:if>
+	    		
+	    		<p>휴무일 ${gdto.gymHoliday }</p>
+	    		
+    		<br id="center_trainer" />
+    		<br/>
+    		<br/>
+    		<br/>
+    			
+    			<h2>상담 가능한 트레이너</h2>
+    			<br />
+    			
+	    		<div class="trainer">
+	    			<c:forEach var="gmdto" items="${gmdto }" varStatus="i">
+						<div class="trainer_${i.count}">
+							<img src="/ConnectGym/resources/images/test/trainer${i.count}.jpg">
+						</div>
+						<div>
+							<h3>${gmdto.memNick }</h3>
+							<p>${gmdto.memInfo }</p>
+							<h4>${gmdto.memTag }</h4>
+						</div>
+					</c:forEach>
+	    		</div>
     		
+    		<br id="center_Addr" />
+    		<br/>
+    		<br/>
+    		<br/>
     		
+    			<h2>위치</h2>
+    			<br />
+    			
+    			<div>
+    				<p>${gdto.gymAddr }</p>
+    			</div>
+    			<br />
+    			
+    			<div id="map">
+    			
+    			</div>
+    			
     	
     	</div>
     	
     	
     	
     	<div class="fix_box">
-    		<img src="/ConnectGym/resources/images/gym/${list.get(0) }">
+    		<img src="/ConnectGym/resources/images/gym/${imglist.get(0) }">
+    		<h2>${gdto.gymName }</h2>
+    		<div>전화하기</div>
     	</div>
     </div>
     
@@ -243,5 +307,48 @@
 		  });
 		});
 	</script>
+	
+	
+	<!--  카카오 지도 API	-->
+	<script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d40887ab9eb7314e8393a3af3aa2cc7&libraries=services"
+	>
+	</script>
+	<script>
+	      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+	        mapOption = {
+	          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	          level: 3 // 지도의 확대 레벨
+	        };
+	
+	      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	      var map = new kakao.maps.Map(mapContainer, mapOption);
+	      
+	      // 주소-좌표 변환 객체를 생성합니다
+	      var geocoder = new kakao.maps.services.Geocoder();
+
+	      // 주소로 좌표를 검색합니다
+	      geocoder.addressSearch('${gdto.gymAddr}', function(result, status) {
+
+	    	    // 정상적으로 검색이 완료됐으면 
+	    	     if (status === kakao.maps.services.Status.OK) {
+
+	    	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+	    	        // 결과값으로 받은 위치를 마커로 표시합니다
+	    	        var marker = new kakao.maps.Marker({
+	    	            map: map,
+	    	            position: coords
+	    	        });
+
+
+	    	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	    	        map.setCenter(coords);
+	    	    } 
+	    	});    
+	</script>
+	
+	
     
     <jsp:include page="../footer.jsp" />

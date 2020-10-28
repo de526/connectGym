@@ -21,7 +21,7 @@ public class GymController {
 	// DB 연결 확인하는 컨트롤러
 	@RequestMapping("/gym")
 	public String dbtest(Model model, @RequestParam("gymNo") int gymNo) {
-		log.info("img_t db연결 테스트 컨트롤러");
+		log.info("gym_t, img_t db연결 테스트 컨트롤러");
 		
 		
 		

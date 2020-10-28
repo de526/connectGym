@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jasla.ConnectGym.domain.GymDTO;
+import com.jasla.ConnectGym.domain.MemberDTO;
 
 
 @Repository
@@ -23,8 +24,15 @@ public class GymDAOImpl implements GymDAO{
 
 	@Override
 	public GymDTO gymSelect(int gymNo) {
-		System.out.println("ddddddddddddddddddddddddddddddddddddddddddddd");
 		return sqlSession.selectOne("gymSelect", gymNo);
 	}
+
+	@Override
+	public List<MemberDTO> gymTSelect(int gymNo) {
+
+		return sqlSession.selectList("gymTSelect", gymNo);
+	}
+	
+	
 	
 }

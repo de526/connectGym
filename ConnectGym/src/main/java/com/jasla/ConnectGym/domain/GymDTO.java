@@ -11,6 +11,9 @@ public class GymDTO {
 	private String gymAddr;
 	private String gymX;
 	private String gymY;
-	
+	private String gymWeekday;
+	private String gymSaturday;
+	private String gymSunday;
+	private String gymHoliday;
 	
 }
