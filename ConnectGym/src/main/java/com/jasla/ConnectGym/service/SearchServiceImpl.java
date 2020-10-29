@@ -17,13 +17,14 @@ public class SearchServiceImpl implements SearchService {
 
 	@Autowired
 	public SearchDAO dao;
-		
-	//헬스장 전체 불러오기
+
+	// 헬스장 전체 불러오기
 	@Override
 	public List<GymDTO> selectGymAll() {
 		return dao.selectGymAll();
 	}
-	//트레이너 전체 불러오기
+
+	// 트레이너 전체 불러오기
 	@Override
 	public List<MemberDTO> selectTraAll() {
 		return dao.selectTraAll();
@@ -31,25 +32,43 @@ public class SearchServiceImpl implements SearchService {
 
 	@Override
 	public List<MemberDTO> trainerSearchResult(List<String> tags, String searchValue) {
+		// 받은 태그들이랑 서치값으로 쿼리 작성하기 ㅠ (보안적으로 안정적이진 않지만 일단..)
+
+		StringBuffer query = new StringBuffer(""); // select * from 쿼리~
+
 		
-		String query = "";
-		
-		if(!searchValue.equals("")) {
-			query = "(select * from member_t where mem_nick like '%"+searchValue+"%')";
-		}else {
-			query = "member_t";
+		if (searchValue.length() == 0) {
+			query.append("member_t");
+		} else {
+			query.append("(select * from member_t where mem_nick like '%" + searchValue + "%')");
 		}
+
 		
-		for(int i=1;i<tags.size();i++) {
-			if(i==1) {
-				query += " where mem_tag like '%"+tags.get(i)+"%'";
-			}else {
-				query += " and mem_tag like '%"+tags.get(i)+"%'";
+		
+		
+		if (tags.size() == 1) {
+			query.append("where mem_level = 50");
+		} else {
+			for (int i = 1; i < tags.size(); i++) {
+				if (i == 1) {
+					query.append(" where mem_tag like '%" + tags.get(i) + "%'");
+				} else {
+					query.append(" and mem_tag like '%" + tags.get(i) + "%'");
+				}
 			}
-		}					
-		log.info(query);
-		return dao.trainerSearchResult(query);
+		}
+
+		/*
+		 * if(!searchValue.equals("")) { query =
+		 * "(select * from member_t where mem_nick like '%"+searchValue+"%')"; }else {
+		 * query = "member_t"; }
+		 * 
+		 * for(int i=1;i<tags.size();i++) { if(i==1) { query +=
+		 * " where mem_tag like '%"+tags.get(i)+"%'"; }else { query +=
+		 * " and mem_tag like '%"+tags.get(i)+"%'"; } }
+		 */
+		log.info(query.toString());
+		return dao.trainerSearchResult(query.toString());
 	}
-	
 
 }

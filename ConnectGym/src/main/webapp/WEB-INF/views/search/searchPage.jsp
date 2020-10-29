@@ -135,6 +135,7 @@
 	</script>
 	<script>
 		var searchValue = '';//button눌렀을때 검색값 저장하는 변수
+		
 		function get_searchBox() {
 			searchValue = document.getElementById("searchBox").value;
 			//변수값저장하고 태그확인하면서 리스트 가져오기
@@ -142,16 +143,16 @@
 		}
 
 		function get_searchList() {
-			var tags = document.getElementsByName("checkbox_tag");
-			var checkedTag = [''];
+			var tags = document.getElementsByName("checkbox_tag");			
+			var checkedTag = ['']; //체크된 태그 값 넣는 배열
 			//체크된거 배열에 넣기
 			for (var i = 0; i < tags.length; i++) {
 				if (tags[i].checked == true) {
 					checkedTag.push(tags[i].value);
 				}
 			}
-			console.log(checkedTag);
-			console.log(searchValue);
+			console.log(checkedTag.length);
+			console.log(searchValue.length);
 			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
 			
 			
