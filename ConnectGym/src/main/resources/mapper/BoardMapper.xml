@@ -4,11 +4,28 @@
 
 <mapper namespace="mapper.BoardMapper"><!-- 이건 xml 잡는거고  -->
 	
-	<select id="selectBoardList" resultType="com.jasla.ConnectGym.domain.BoardDTO">
-		SELECT * FROM BOARD_T
+
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT 
+			COUNT(*) 
+		FROM 
+			BOARD_T
 	</select>
 	
-	
-	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="com.jasla.ConnectGym.domain.BoardDTO" parameterType="com.jasla.ConnectGym.domain.PagingDTO">
+		SELECT *
+			FROM (
+					SELECT ROWNUM RNO, A.*
+						FROM (
+										SELECT *
+										FROM BOARD_T
+										ORDER BY bo_no DESC
+										) A
+			) 
+		WHERE RNO BETWEEN #{start} AND #{end}
+	</select>
+			
 	
 </mapper>
