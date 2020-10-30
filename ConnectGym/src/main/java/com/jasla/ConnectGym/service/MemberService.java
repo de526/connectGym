@@ -8,6 +8,6 @@ public interface MemberService {
 	
 	List<MemberDTO> selectMemAll();
 	void insertMember(MemberDTO dto);
-	int isEnableEmail (String email);
+	int emailCheck(String email);
 
 }

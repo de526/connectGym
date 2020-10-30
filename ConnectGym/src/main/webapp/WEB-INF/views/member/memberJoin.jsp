@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
 <!-- jquery -->
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -20,103 +20,153 @@
 
 	//모든 공백 체크 정규식 
 	var empJ = /\s/g;
-	//아이디 정규식 
-	var idJ = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
+	// 이메일 검사 정규식
+	var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	// 비밀번호 정규식 
 	var pwJ = /^[A-Za-z0-9]{4,12}$/;
 	// 이름 정규식 
 	var nameJ = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
-	// 이메일 검사 정규식
-	var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	// 휴대폰 번호 정규식
 	var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 	/^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/
 
 	var birthJ = false;
 	
-	var address = $('#mem_de_addr');
+// 	var address = $('#mem_de_addr'); 
 	
-	$(document).ready(function(){
-		var address = $('#mem_de_addr');
+ 	$(document).ready(function(){
+// 		var address = $('#mem_de_addr');
 	
 		// 아이디 중복확인
-		$("#mem_mail").blur(function(){
-			if('#mem_mail').val()==''){
+ 		$("#mem_mail").blur(function(){ 
+			if($('#mem_mail').val() == ''){
 			$('#mail_check').text('아이디를 입력하세요.');
 			$('#mail_check').css('color', 'red');
-		}else if($('#mem_mail').val()!=''){
+		}else if($('#mem_mail').val() != ''){
 			
-			var mem_mail$('#mem_mail').val();
+			var mem_mail=$('#mem_mail').val();
+			
 			$.ajax({
 				async: true,
-				type: 'POST'
-				data: mem_mail // mem_mail 이라는 이름으로 mem_mail라는 데이터를 @Webservlet("/idsearch.do")에 보내겠다
-				url : 'idcheck.do',
+				type: 'POST',
+				data: {
+					"mail" : mem_mail
+				}, // mem_mail 이라는 이름으로 mem_mail라는 데이터를 @Webservlet("/idsearch.do")에 보내겠다
+				url : '/ConnectGym/mailcheck.do',
 				dateType: 'json',
-				contentType: "application/json; charset=UTF-8",
+// 				contentType: "application/json; charset=UTF-8",
 				success: function(data){
-					if(data.cnt > 0){
-						$('#id_check').text('중복된 아이디 입니다.')
-					}
+				console.log(data);	
+				
+ 					if(data > 0){
+						$('#mail_check').text('중복된 아이디 입니다.');
+						$('#mail_check').css('color','red');
+						$("#usercheck").attr("disabled", false);
+					} else {
+						if(mailJ.test(mem_mail)){
+							$('#mail_check').text('사용가능한 아이디 입니다.');
+							$('#mail_check').css('color', 'blue');
+							$("#usercheck").attr("disabled", false);
+						}
+						else if(mem_mail == ''){
+							$('#mail_check').text('아이디를 입력해주세요.');
+							$('#mail_check').css('color', 'red');
+							$("#usercheck").attr("disabled", true);
+							
+							
+						} else {
+							$('#mail_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다.");
+							$('#mail_check').css('color', 'red');
+							$("#usercheck").attr("disabled", true);
+						}
+					}  
 				}
 				
-			})
-		}
+			}); // ajax
+		} // else if
 			
-		})
-	})
-	function searchPost() {
+		}); // blur
+		
+		$()
+ 		$('form').on('submit', function(){
+			var inval_Arr = new Array(8).fill(false);
+			if (mailJ.test($('#mem_mail').val())) {
+				inval_Arr[0] = true;
+			} else {
+				inval_Arr[0] = false;
+				alert('이메일(아이디)을 확인하세요.');
+				return false;
+			}
+// 			// 비밀번호가 같을 경우 && 비밀번호 정규식
+// 			if(($('#mem_pw').val() == ($('#mem_pw2').val()))
+// 				&& pwJ.test($('#mem_pw').val())) {
+// 				inval_Arr[1] = true;
+// 			} else {
+// 				inval_Arr[1] = false;
+// 				alert('비밀번호를 확인하세요.');
+// 				return false;
+// 			}
+			// 이름 정규식
+			if(nameJ.test($('#mem_name').val())){
+				inval_Arr[2] = true;
+			}
+		}) 
+		
+	}) // 레디
+	
+//   	function searchPost() {
 
-		new daum.Postcode(
-				{
+// 		new daum.Postcode(
+// 				{
 
-					oncomplete : function(data) {
-						// 팝업에서 검색결과 항목을 클릭했을 때 실행할 코드를 작성하는 부분.
+// 					oncomplete : function(data) {
+// 						// 팝업에서 검색결과 항목을 클릭했을 때 실행할 코드를 작성하는 부분.
 
-						// 각 주소의 노출 규칙에 따라 주소를 조합한다
-						// 내려오는 변수가 값이 없는 경우에 공백('') 값을 가지므로, 이를 참고할 것
-						var fullAddr = ''; // 최종 주소 변수
-						var extraAddr = ''; // 조합형 주소 변수
+// 						// 각 주소의 노출 규칙에 따라 주소를 조합한다
+// 						// 내려오는 변수가 값이 없는 경우에 공백('') 값을 가지므로, 이를 참고할 것
+// 						var fullAddr = ''; // 최종 주소 변수
+// 						var extraAddr = ''; // 조합형 주소 변수
 
-						// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다
-						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-							fullAddr = data.roadAddress;
+// 						// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다
+// 						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+// 							fullAddr = data.roadAddress;
 
-						} else { // 사용자가 지번 주소를 선택했을 경우(J)
-							fullAddr = data.jibunAddress;
+// 						} else { // 사용자가 지번 주소를 선택했을 경우(J)
+// 							fullAddr = data.jibunAddress;
 
-						}
+// 						}
 
-						// 사용자가 선택한 주소가 도로명 타입일때 조합한다
-						if (data.userSelectedType === 'R') {
-							// 법정동명이 있을 경우 추가
-							if (data.bname !== '') {
-								extraAddr += data.bname;
-							}
-							// 건물명이 있을 경우 추가함
-							if (data.buildingName !== '') {
-								extraAddr += (extraAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-							// 조합형 주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다
-							fullAddr += (extraAddr !== '' ? '(' + extraAddr
-									+ ')' : '');
+// 						// 사용자가 선택한 주소가 도로명 타입일때 조합한다
+// 						if (data.userSelectedType === 'R') {
+// 							// 법정동명이 있을 경우 추가
+// 							if (data.bname !== '') {
+// 								extraAddr += data.bname;
+// 							}
+// 							// 건물명이 있을 경우 추가함
+// 							if (data.buildingName !== '') {
+// 								extraAddr += (extraAddr !== '' ? ', '
+// 										+ data.buildingName : data.buildingName);
+// 							}
+// 							// 조합형 주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다
+// 							fullAddr += (extraAddr !== '' ? '(' + extraAddr
+// 									+ ')' : '');
 
-						}
+// 						}
 
-						// 3단계 : 해당 필드들에 정보 입력
-						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('mem_zipcode').value = data.zonecode; // 5자리
-						// 새
-						// 우편번호
-						// 사용
-						document.getElementById('mem_addr').value = fullAddr;
+// 						// 3단계 : 해당 필드들에 정보 입력
+// 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
+// 						document.getElementById('mem_zipcode').value = data.zonecode; // 5자리
+// 						// 새
+// 						// 우편번호
+// 						// 사용
+// 						document.getElementById('mem_addr').value = fullAddr;
 
-					}
+// 					}
 
-				}).open();
+// 				}).open();
 
-	}; //
+// 	}; // 
+	
 </script>
 <div id="join">
 	<div class="join_wrap">
@@ -130,6 +180,11 @@
 						class="form-control" id="mem_mail" name="mem_mail" size="30"
 						placeholder="EMAIL" />
 					<div class="check_font" id="mail_check"></div>
+					
+					<!-- <script type="text/javascript">
+					$("#mem_mail").blur(function(){ 
+			 			console.log("안녕");})					
+					</script> -->
 				</div>
 				<div class="form_group">
 					<label for="pw">비밀번호</label> <input type="password"
