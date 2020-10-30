@@ -30,7 +30,8 @@ a {
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href = "/ConnectGym/board?nowPage=${paging.nowPage}&cntPerPage=" + sel;
+		location.href = "/ConnectGym/board?nowPage=${paging.nowPage}&cntPerPage="
+				+ sel;
 	}
 </script>
 <title>게시판</title>
@@ -70,7 +71,9 @@ a {
 					<c:forEach var="btemp" items="${viewAll}">
 						<tr>
 							<td class="col-2 text-center">${btemp.boNo}</td>
-							<td class="col-4 text-center"><a href='/connectGym/boardDetail?boNo=${btemp.boNo}'>${btemp.boTitle}</a></td>
+							<td class="col-4 text-center"><a href="boardDetail.do?boNo=${btemp.boNo}">${btemp.boTitle}</a></td>
+<!-- 							<td class="col-4 text-center"><a href="boardDetail.do" -->
+<%-- 								id="boNo_${boNo}" data-toggle="modal" data-target="#boardDetail">${btemp.boTitle}</a></td> --%>
 							<td class="col-2 text-center">${btemp.memNo}</td>
 							<td class="col-2 text-center">${btemp.boDate}</td>
 							<td class="col-2 text-center">${btemp.boHit}</td>
@@ -78,14 +81,19 @@ a {
 					</c:forEach>
 				</tbody>
 			</table>
-
+			<div align="right">
+				<button type="button" class="btn btn-default navbar-btn" onclick="location.href='#'">게시글
+					작성</button>
+			</div>
 		</div>
 	</div>
 </div>
-<button type="button" class="btn btn-default navbar-btn">게시글 작성</button>
+
+
 <div style="display: block; text-align: center;">
 	<c:if test="${paging.startPage != 1}">
-		<a href="/ConnectGym/board?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
+		<a
+			href="/ConnectGym/board?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
 	</c:if>
 	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
 		<c:choose>
@@ -93,14 +101,28 @@ a {
 				<b>${p}</b>
 			</c:when>
 			<c:when test="${p != paging.nowPage}">
-				<a href="/ConnectGym/board?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a>
+				<a
+					href="/ConnectGym/board?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a>
 			</c:when>
 		</c:choose>
 	</c:forEach>
 	<c:if test="${paging.endPage != paging.lastPage}">
-		<a href="/ConnectGym/board?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+		<a
+			href="/ConnectGym/board?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 	</c:if>
 </div>
 <jsp:include page="../footer.jsp" />
+
+<!-- boardDetail modal 팝업 띄우기 -->
+<!-- <div class="modal fade" id="boardDetail" tabindex="-1" role="dialog" -->
+<!-- 	aria-describedby="게시판 상세보기" aria-labelledby="board detail"> -->
+<!-- 	<div class="modal-dialog" role="document" -->
+<!-- 		style="width: 1200px; height: 700px;"> -->
+<!-- 		<!-- modal content -->
+
+<!-- 		<div class="modal-content"></div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+
 
 

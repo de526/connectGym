@@ -17,36 +17,53 @@
 </script>
 
 <style>
+#boardDetail {
+	width: 65%;
+	margin: 0 auto;
+	margin-top: 80px;
+}
 
+a {
+	text-decoration: none;
+}
+
+#head {
+	font-weight: bold;
+}
 </style>
 <script>
-
+	
 </script>
-<title>게시판 상세보기</title>
+<title>게시판</title>
+<jsp:include page="../header.jsp" />
 
-
-<!-- modal 띄우기 -->
-<div class="modal fade" id="boardModal" tabindex="-1" role="dialog" aria-labelledby="boardModalLabel">
-	<div class="modal-dialog" role="document" >
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-					<h4>제목</h4>
-				<div class="modal-body">
-				컨텐츠
-					
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				
-				</div>
+<div class="container-fluid">
+	<div id="boardDetail">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<tr>
+					<td id="head" class="col-md-2 text-center">번호</td>
+					<td class="col-md-2 text-left">${boardDet.boNo}</td>
+					<td id="head" class="col-md-2 text-center">작성자</td>
+					<td class="col-md-2 text-left">${boardDet.memNo}</td>
+					<td id="head" class="col-md-1 text-center">작성일</td>
+					<td class="col-md-3 text-center">${boardDet.boDate}</td>
+				</tr>
+				<tr>
+					<td id="head" style="text-align: center;">제목</td>
+					<td colspan="5">${boardDet.boTitle}</td>
+				</tr>
+				<tr>
+					<td id="head" style="text-align: center;">내용</td>
+					<td colspan="5">${boardDet.boContent}</td>
+				</tr>
+			</table>
+			<div align="right">
+				<button type="button" class="btn btn-default navbar-btn"
+					onclick="history.back()">게시글 목록</button>
 			</div>
-		
-		</div>	
+		</div>
 	</div>
 </div>
-
-
-	
+<jsp:include page="../footer.jsp" />
 

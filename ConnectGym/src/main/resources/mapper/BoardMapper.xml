@@ -10,22 +10,26 @@
 		SELECT 
 			COUNT(*) 
 		FROM 
-			BOARD_T
+			board_t
 	</select>
 	
 	<!-- 페이징 처리 후 게시글 조회 -->
-	<select id="selectBoard" resultType="com.jasla.ConnectGym.domain.BoardDTO" parameterType="com.jasla.ConnectGym.domain.PagingDTO">
+	<select id="selectBoard" parameterType="com.jasla.ConnectGym.domain.PagingDTO" resultType="com.jasla.ConnectGym.domain.BoardDTO">
 		SELECT *
 			FROM (
 					SELECT ROWNUM RNO, A.*
 						FROM (
 										SELECT *
-										FROM BOARD_T
+										FROM board_t
 										ORDER BY bo_no DESC
 										) A
 			) 
 		WHERE RNO BETWEEN #{start} AND #{end}
 	</select>
 			
+	<!-- 게시글 상세 조회 -->
+	<select id="getBoardDetail" parameterType="int" resultType="com.jasla.ConnectGym.domain.BoardDTO">
+		SELECT * FROM board_t WHERE bo_no = #{boNo}
+	</select>
 	
 </mapper>
