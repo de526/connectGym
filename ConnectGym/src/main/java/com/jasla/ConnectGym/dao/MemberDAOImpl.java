@@ -19,9 +19,9 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	// 회원가입
 	@Override
-	public void insertMember(MemberDTO dto) {
+	public int insertMember(MemberDTO dto) {
 		log.info("dao insertMember");
-		sqlSession.insert("insertMember", dto);
+		return sqlSession.insert("insertMember", dto);
 		
 	}
 	// 회원목록

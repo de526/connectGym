@@ -7,7 +7,7 @@ import com.jasla.ConnectGym.domain.MemberDTO;
 public interface MemberDAO {
 	
 	// 회원가입
-	void insertMember(MemberDTO dto);
+	int insertMember(MemberDTO dto);
 	
 	// 회원가입 중복검사
 	

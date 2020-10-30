@@ -3,6 +3,7 @@ package com.jasla.ConnectGym.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,12 +50,18 @@ public class MemberController {
 		
 	}
 	// 회원가입 
+	@Transactional
 	@RequestMapping(value = "/memberjoin.do", method = RequestMethod.POST)
-	public ModelAndView memberJoin(MemberDTO dto) {
-		ModelAndView mav = new ModelAndView();
-		service.insertMember(dto);
-		mav.setViewName("memberloginform");
-		return mav;
+	public String memberJoin(MemberDTO dto, Model model) {
+		log.info(dto.toString());
+		int result = service.insertMember(dto);
+		log.info(""+result);
+		model.addAttribute("result",result);
+		return "member/joinResult";
 	}
-	
+	// 로그인
+	@RequestMapping("/login.do")
+	public String login(MemberDTO dto) {
+		return "member/main";
+	}
 }

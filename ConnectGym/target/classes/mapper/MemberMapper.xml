@@ -5,31 +5,31 @@
 <mapper namespace="mapper.MemberMapper"><!-- 이건 xml 잡는거고  -->
 
 
-	<!-- 회원가입(일반회원) -->
-<!-- 	<insert id="insertMember" parameterType="com.jasla.ConnectGym.domain.MemberDTO"> -->
-<!-- 	insert into member_t values( -->
-<!-- 		member_seq.nextval, -->
-<!-- 		null,  -->
-<!-- 		#{mem_mail}, -->
-<!-- 		#{mem_pw}, -->
-<!-- 		#{mem_nick}, -->
-<!-- 		#{mem_name}, -->
-<!-- 		#{mem_gender}, -->
-<!-- 		#{mem_birth}, -->
-<!-- 		#{mem_zipcode}, -->
-<!-- 		#{mem_addr}, -->
-<!-- 		#{mem_de_addr}, -->
-<!-- 		#{mem_phone}, -->
-<!-- 		'F', 탈퇴여부 -->
-<!-- 		sysdate,  -->
-<!-- 		null, 수정 날짜 -->
-<!-- 		0, 회원 레벨 -->
-<!-- 		null, 트레이너 소개 -->
-<!-- 		null, 트레이너 한마디 -->
-<!-- 		null); 트레이너 태그 -->
+<!-- 	회원가입(일반회원) -->
+	<insert id="insertMember" parameterType="com.jasla.ConnectGym.domain.MemberDTO" >
+	insert into member_t values(
+		member_seq.nextval,
+		null, 
+		#{memMail},
+		#{memPw},
+		#{memNick},
+		#{memName},
+		#{memGender},
+		#{memBirth},
+		#{memZipcode},
+		#{memAddr},
+		#{memDeAddr},
+		#{memPhone},
+		'F', <!-- 탈퇴여부 -->
+		sysdate, 
+		null, <!--수정 날짜 -->
+		0, <!-- 회원 레벨 -->
+		null, <!-- 트레이너 소개 -->
+		null, <!-- 트레이너 한마디 -->
+		null) <!-- 트레이너 태그 -->
 		
-<!-- 	</insert>	 -->
-	<!-- 회원가입(트레이너) -->
+	</insert>	
+<!-- 	회원가입(트레이너) -->
 <!-- 	<insert id="insert" parameterType="com.jasla.ConnectGym.domain.MemberDTO"> -->
 	
 <!-- 	</insert>	 -->

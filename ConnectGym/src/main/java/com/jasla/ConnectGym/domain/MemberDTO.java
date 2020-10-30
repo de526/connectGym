@@ -17,7 +17,7 @@ public class MemberDTO {
 	private String memBirth;
 	private String memZipcode;
 	private String memAddr;
-	private String memDeaddr;
+	private String memDeAddr;
 	private String memPhone;
 	private char memLeave;
 	private Date memJoindate;

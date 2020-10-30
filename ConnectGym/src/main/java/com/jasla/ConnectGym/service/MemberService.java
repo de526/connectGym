@@ -7,7 +7,7 @@ import com.jasla.ConnectGym.domain.MemberDTO;
 public interface MemberService {
 	
 	List<MemberDTO> selectMemAll();
-	void insertMember(MemberDTO dto);
+	int insertMember(MemberDTO dto);
 	int emailCheck(String email);
 
 }
