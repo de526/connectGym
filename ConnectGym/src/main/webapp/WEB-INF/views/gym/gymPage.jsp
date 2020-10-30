@@ -171,15 +171,47 @@
 }
 
 #gym .gym_img {
-	width: 40%;
-	height: 60%;
-	margin-top: 150px;
+	width: 50%;
+	height: 70%;
+	margin-top: 100px;
 }
 
 #gym .gym_img img {
 	width: 100%;
 	height: 100%;
 	object-fit: fill;
+}
+
+#gym .bt-x{
+	position: relative;
+	-webkit-appearance: none;
+	border-radius: 0;	
+	border: 0;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	top: 35px;
+    left: 250px;
+	background-color: #777777;
+}
+
+#gym .bt-x:after,
+#gym .bt-x:before{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: 5px;	
+	width: 30px;
+	height: 4px;
+	border-radius: 2px;
+	background: #fcfcfc;
+}
+#gym .bt-x:after{
+	transform: rotate(45deg);
+}
+#gym .bt-x:before{
+	transform: rotate(-45deg);
 }
 
 #gym .arrow-left {
@@ -206,34 +238,41 @@
 </style>
 	
 	<script>
-		function board() {
+		
+		// 이미지 전체보기 함수
+		function board(index) {
 			$('#hidden').css("display", 'flex');
 			$('body').css("overflow", "hidden");
+			document.getElementById("gym_img").src = gymImg[index];
 		}
 
+		// 전체보기 종료 함수
 		function exit() {
 			$('#hidden').css("display", 'none');
 			$('body').css("overflow", "");
 		}
 		
+		
+		// 이미지 전환 스크립트
 		var gymImg = new Array();
 		var imgleng = ${imglist.size()};
+		var imglist = ${imgString};
+		
 		
 		for (var i = 0; i < imgleng; i++) {
-			var imgName = "${imglist.get(i)}";
-			gymImg[i] = "/ConnectGym/resources/images/gym/" + imgName;
+			gymImg[i] = "/ConnectGym/resources/images/gym/" + imglist[i];
 		}
 		
 		var i = 0;
 		
 		function left() {
-			alert("dddd");
 			i--;
 			if(i < 0) i = imgleng - 1;
 			document.getElementById("gym_img").src = gymImg[i];
+			return false;
 		}
 		
-		function rignt() {
+		function right() {
 			i++;
 			if(i > imgleng - 1) i=0;
 			document.getElementById("gym_img").src = gymImg[i];
@@ -251,17 +290,17 @@
 	    	<div class="view">
 	    		
 	    		<div class="view_main">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" onclick="board()" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" onclick="board(0)" />
 	    		</div>
 	    		
 	    		<div class="view_sub1">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(1) }" />
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(2) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(1) }" onclick="board(1)"/>
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(2) }" onclick="board(2)"/>
 	    		</div>
 	    		
 	    		<div class="view_sub2">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(3) }" />
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(4) }" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(3) }" onclick="board(3)"/>
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(4) }" onclick="board(4)"/>
 	    		</div>
 	    		
 	    	</div>
@@ -396,7 +435,9 @@
     		<div class="gym_img">
     			<img id="gym_img" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" />
     		</div>
- 
+    		
+ 			<button class="bt-x" type="button" onclick="exit()"></button>
+ 			
 			<div class="arrow-right" onclick="right()"> </div>
     	</div>
     	
