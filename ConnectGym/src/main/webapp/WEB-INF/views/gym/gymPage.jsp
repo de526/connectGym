@@ -182,58 +182,60 @@
 	object-fit: fill;
 }
 
-#gym .bt-x{
+#gym .x_button{
 	position: relative;
 	-webkit-appearance: none;
 	border-radius: 0;	
 	border: 0;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	cursor: pointer;
-	top: 35px;
-    left: 250px;
-	background-color: #777777;
+	top: 5%;
+    left: 12%;
+	background-color:  #77777700;
 }
 
-#gym .bt-x:after,
-#gym .bt-x:before{
+#gym .x_button:after,
+#gym .x_button:before{
 	content: "";
 	display: block;
 	position: absolute;
 	top: 20px;
 	left: 5px;	
-	width: 30px;
-	height: 4px;
+	width: 40px;
+	height: 5px;
 	border-radius: 2px;
 	background: #fcfcfc;
 }
-#gym .bt-x:after{
+#gym .x_button:after{
 	transform: rotate(45deg);
 }
-#gym .bt-x:before{
+#gym .x_button:before{
 	transform: rotate(-45deg);
 }
 
-#gym .arrow-left {
+#gym .left_button {
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
 	border-right: 30px solid #fcfcfc;
 	position: relative;
-	right: 300px;
-	top: 450px;
+	right: 10%;
+	top: 50%;
+	cursor: pointer;
 }
 
-#gym .arrow-right {
+#gym .right_button {
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
 	border-left: 30px solid #fcfcfc;
 	position: relative;
-	left: 300px;
-	top: 450px;
+	left: 10%;
+	top: 50%;
+	cursor: pointer;
 }
 </style>
 	
@@ -430,15 +432,15 @@
     	
     	<div class="img_board" id="hidden">
     	
-    		<div class="arrow-left" onclick="left()"> </div>
+    		<div class="left_button" onclick="left()"> </div>
     		
     		<div class="gym_img">
     			<img id="gym_img" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" />
     		</div>
     		
- 			<button class="bt-x" type="button" onclick="exit()"></button>
+ 			<button class="x_button" type="button" onclick="exit()"></button>
  			
-			<div class="arrow-right" onclick="right()"> </div>
+			<div class="right_button" onclick="right()"> </div>
     	</div>
     	
     </div>
