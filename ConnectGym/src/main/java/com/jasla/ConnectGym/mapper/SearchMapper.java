@@ -15,6 +15,10 @@ public interface SearchMapper {
 	@Select("SELECT * FROM gym_T")
 	List<GymDTO> selectGymAll(); 
 	
+	//트레이너 전체 가져오기
+	@Select("select * from member_t where mem_level = 50")
+	List<MemberDTO> selectTraAll();
+	
 	// 태그값이랑 검색값 가지고 트레이너 검색
 	@Select("select * from ${query}")
 	List<MemberDTO> trainerSearchResult(String query);

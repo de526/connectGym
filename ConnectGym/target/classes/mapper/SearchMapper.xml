@@ -7,10 +7,4 @@
 <!-- 이건 xml 잡는거고  -->
 
 
-	<!-- 트레이너 전체 불러오기 -->
-	<select id="selectTraAll" resultType="com.jasla.ConnectGym.domain.MemberDTO">
-		select * from member_t where mem_level = 50
-	</select>
-	
-
 </mapper>
