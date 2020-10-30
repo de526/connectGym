@@ -31,12 +31,14 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectMemAll();
 	}
 
-	//	@Transactional(readOnly=true)
 	@Override
-	public int isEnableEmail(String email) {
-		log.info("svc isEnableEmail");
-		return dao.isEnableEmail(email);
+	public int emailCheck(String email) {
+		log.info("서비스 타는중");
+		return dao.emailCheck(email);
 	}
+	
+	
+
 	
 	
 	}

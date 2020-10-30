@@ -32,10 +32,10 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	// 이메일 중복확인
 	@Override
-	public int isEnableEmail(String email) {
-		log.info("dao isEnableEmail");
-		return sqlSession.selectOne("isEnableEmail", email);
-		
+	public int emailCheck(String email) {
+		log.info("dao emailCheck");
+		return sqlSession.selectOne("emailCheck", email);
 	}
+	
 }
 	

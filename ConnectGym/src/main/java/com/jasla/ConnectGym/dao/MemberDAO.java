@@ -10,10 +10,9 @@ public interface MemberDAO {
 	void insertMember(MemberDTO dto);
 	
 	// 회원가입 중복검사
+	
 	// 이메일 중복검사
-	int isEnableEmail(String email);
-	
-	
+	int emailCheck(String email);
 	
 	
 	//회원 조회

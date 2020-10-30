@@ -41,18 +41,12 @@ public class SearchController {
 	public String searchList(@RequestParam("tags[]") List<String> tags,
 			@RequestParam("search") String searchValue,Model model) {
 		
-		log.info("태그랑 서치값 받아서 트레이너 목록 가져오는 ajax rest controller");
-		log.info(tags);
-		log.info(tags.size());
-		log.info(searchValue.length());
-		//log.info(service.trainerSearchResult(tags, searchValue));
+		model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
 		
-		//둘다 null 일때는 전체출력이여야함
-		if(tags.size()==0 & searchValue.length()==0) {
-			log.info("둘다 null 이라 전체 가져오는거 타는중 ");
+		log.info(service.trainerSearchResult(tags, searchValue));
+		
+		if(tags.get(0).equals("") & searchValue.equals("")) {
 			model.addAttribute("traList",service.selectTraAll());
-		}else {
-			model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
 		}
 			
 		return "search/searchTrainer";
