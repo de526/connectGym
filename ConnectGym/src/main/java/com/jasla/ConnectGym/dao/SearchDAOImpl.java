@@ -24,10 +24,15 @@ public class SearchDAOImpl implements SearchDAO{
 	public List<MemberDTO> selectTraAll() {		
 		return sqlSession.selectList("selectTraAll");
 	}
-
+	//매퍼 이름이랑 파라미터 넣어주는거 잊지말기 ㅠㅠ 맨날 까먹어
 	@Override
 	public List<MemberDTO> trainerSearchResult(String query) {
 		return sqlSession.selectList("trainerSearchResult",query);
+	}
+
+	@Override
+	public List<GymDTO> gymSearchResult(String query) {
+		return sqlSession.selectList("gymSearchResult",query);
 	}
 
 }

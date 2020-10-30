@@ -9,4 +9,5 @@ public interface SearchDAO {
 	List<GymDTO> selectGymAll();  
 	List<MemberDTO> selectTraAll();
 	List<MemberDTO> trainerSearchResult(String query);
+	List<GymDTO> gymSearchResult(String query);
 }

@@ -9,4 +9,5 @@ public interface SearchService {
 	List<GymDTO> selectGymAll(); 
 	List<MemberDTO> selectTraAll();
 	List<MemberDTO> trainerSearchResult(List<String> tags,String searchValue);
+	List<GymDTO> gymSearchResult(List<String> tags,String searchValue);
 }

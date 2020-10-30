@@ -39,23 +39,39 @@ public class SearchController {
 	
 	@RequestMapping("/searchList.do")
 	public String searchList(@RequestParam("tags[]") List<String> tags,
-			@RequestParam("search") String searchValue,Model model) {
-		
-		log.info("태그랑 서치값 받아서 트레이너 목록 가져오는 ajax rest controller");
-		log.info(tags);
+			@RequestParam("search") String searchValue,@RequestParam("flag") String flag, Model model) {
+
+		log.info("태그랑 서치값 받아서 헬스장/트레이너 목록 가져오는 ajax rest controller");
+
 		log.info(tags.size());
 		log.info(searchValue.length());
-		//log.info(service.trainerSearchResult(tags, searchValue));
+		log.info(flag);
 		
-		//둘다 null 일때는 전체출력이여야함
-		if(tags.size()==0 & searchValue.length()==0) {
-			log.info("둘다 null 이라 전체 가져오는거 타는중 ");
-			model.addAttribute("traList",service.selectTraAll());
-		}else {
-			model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
-		}
+
+		//flag가 gym 이면 헬스장 목록 가져오기 
+		if(flag.equals("gym")) {
+			log.info("헬스장 리스트 가져오기");
+			model.addAttribute("gymList", service.selectGymAll());
 			
-		return "search/searchTrainer";
+			
+			return "search/searchGym";
+		}else{
+			
+			
+			//둘다 null 일때는 전체출력이여야함
+			if(tags.size()==0 & searchValue.length()==0) {
+				log.info("둘다 null 이라 전체 가져오는거 타는중 ");
+				model.addAttribute("traList",service.selectTraAll());
+			}else {
+				log.info("트레이너 검색 결과 가져오기");
+				model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
+			}
+		
+			return "search/searchTrainer";
+		}
+		
+		
+			
 	}
 	
 
