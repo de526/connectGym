@@ -29,6 +29,7 @@ public class GymServiceImpl implements GymService {
 		List<MemberDTO> gmdto = dao.gymTSelect(gymNo);
 		model.addAttribute("gmdto", gmdto);
 		
+		
 		return "gym/gymPage";
 	}
 
