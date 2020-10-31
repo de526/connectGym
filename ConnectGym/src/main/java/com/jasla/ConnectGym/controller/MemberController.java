@@ -37,6 +37,11 @@ public class MemberController {
 	public String gojoin(Model model) {
 		return "member/memberJoin";
 	}
+	//로그인 페이지 이동
+	@RequestMapping("/login")
+	public String gologin(Model model) {
+		return "member/login";
+	}
 	
 	//DB 연결 확인 
 	@RequestMapping("/memberdb")

@@ -309,7 +309,7 @@
 		<div class="join_panel">
 			<form action="memberjoin.do" name="member" id="userCheck" method="post"	role="form">
 
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="mail">이메일(아이디)</label> <input type="text"
 						class="form-control" id="memMail" name="memMail" size="30"
 						placeholder="EMAIL" />
@@ -320,49 +320,49 @@
 			 			console.log("안녕");})					
 					</script> -->
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="pw">비밀번호</label> <input type="password"
 						class="form-control" id="memPw" name="memPw"
 						placeholder="PASSWORD">
 					<div class="check_font" id="pw_check"></div>
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="pw2">비밀번호 확인</label> <input type="password"
 						class="form-control" id="memPw2" name="memPw2"
 						placeholder="Confirm Password">
 					<div class="check_font" id="pw2_check"></div>
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="memName">이름</label> <input type="text"
 						class="form-control" id="memName" name="memName"
 						placeholder="Name">
 					<div class="check_font" id="name_check"></div>
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="memNick">닉네임</label> <input type="text"
 						class="form-control" id="memNick" name="memNick"
 						placeholder="Nick Name">
 					<div class="check_font" id="nick_check"></div>
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="memGender">성별</label> 
 					<input type="radio"	id="memGender" name="memGender" value="M" /> 남자
 					 <input	type="radio" id="memGender" name="memGender" value="F" /> 여자
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="memBirth">생년월일</label> <input type="tel"
 						class="form-control" id="memBirth" name="memBirth"
 						placeholder="ex) 19910101" />
 					<div class="check_font" id="birth_check"></div>
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<label for="memPhone">휴대폰 번호('-' 없이 번호만 입력해주세요)</label> <input
 						type="tel" class="form-control" id="memPhone" name="memPhone"
 						placeholder="Phone Number" />
 					<div class="check_font" id="phone_check"></div>
 				</div>
 				<!--  다음 주소 api -->
-				<div class="form_group">
+				<div class="join-form_group">
 					<input class="form_control" style="display: inline;"
 						placeholder="우편번호" name="memZipcode" id="memZipcode" type="text"
 						readonly="readonly" size="5" maxlength="5" /> <input type="button"
@@ -370,15 +370,15 @@
 						name="joinAddressSearchBtn" value="주소검색"><br>
 				</div>
 				<!-- 기본주소 -->
-				<div class="form_group">
+				<div class="join-form_group">
 					<input class="form-control" style="top: 5px;" placeholder="도로명 주소"
 						name="memAddr" id="memAddr" type="text" readonly="readonly">
 				</div>
-				<div class="form_group">
+				<div class="join-form_group">
 					<input class="form-control" placeholder="상세주소" name="memDeAddr"
 						id="memDeAddr" type="text">
 				</div>
-				<div class="form-group text-center">
+				<div class="join-form-group text-center">
 					<button type="submit" class="btn btn-primary">회원가입</button>
 				</div>
 			</form>
