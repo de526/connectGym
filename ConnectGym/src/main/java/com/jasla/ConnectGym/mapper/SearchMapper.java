@@ -24,7 +24,7 @@ public interface SearchMapper {
 	List<MemberDTO> trainerSearchResult(String query);
 	
 	//태그값, 검색값 가지고 헬스장 검색
-	@Select("select * from gym_t g ${query}")
+	@Select("select * from gym_t g where ${query}")
 	List<GymDTO> gymSearchResult(String query);
 	
 }

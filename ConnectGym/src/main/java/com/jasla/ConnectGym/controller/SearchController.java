@@ -51,13 +51,17 @@ public class SearchController {
 		//flag가 gym 이면 헬스장 목록 가져오기 
 		if(flag.equals("gym")) {
 			log.info("헬스장 리스트 가져오기");
-			model.addAttribute("gymList", service.selectGymAll());
-			
+			if(tags.size()==0 & searchValue.length()==0) {
+				log.info("둘다 null 이라 전체 가져오는거 타는중 ");
+				model.addAttribute("gymList", service.selectGymAll());
+			}else {
+				log.info("헬스장 검색 결과 가져오기");
+				model.addAttribute("gymList", service.gymSearchResult(tags, searchValue));
+			}
 			
 			return "search/searchGym";
 		}else{
-			
-			
+			log.info("트레이너 리스트 가져오기");			
 			//둘다 null 일때는 전체출력이여야함
 			if(tags.size()==0 & searchValue.length()==0) {
 				log.info("둘다 null 이라 전체 가져오는거 타는중 ");

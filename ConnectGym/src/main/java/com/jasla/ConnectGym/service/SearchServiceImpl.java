@@ -59,30 +59,30 @@ public class SearchServiceImpl implements SearchService {
 
 	@Override
 	public List<GymDTO> gymSearchResult(List<String> tags, String searchValue) {
-		StringBuffer query = new StringBuffer("");
-		
-/*		//검색값 쿼리처리
-		if (searchValue.length() == 0) {
-			query.append("member_t");
-		} else {
-			query.append("(select * from member_t where mem_nick like '%" + searchValue + "%')");
-		}		
+		StringBuffer query = new StringBuffer("");		
 		//선택된 태그 쿼리 처리
 		if (tags.size() == 0) {
-			query.append("where mem_level = 50");
-		} else {
+			if (searchValue.length() != 0) {
+				//태그없이 검색값만 있을때
+				query.append("gym_name like '%"+searchValue+"%'");
+			} 
+		} else {			
+			if (searchValue.length() != 0) {
+				//태그, 검색 둘다 있을때
+				query.append("gym_name like '%"+searchValue+"%' and ");
+			}
+			//태그값만 있을때
+			query.append("g.gym_no in (select m.gym_no from member_t m ");
 			for (int i = 1; i < tags.size(); i++) {
 				if (i == 1) {
-					query.append(" where mem_tag like '%" + tags.get(i) + "%'");
+					query.append(" where mem_tag like '%" + tags.get(i) + "%')");
 				} else {
-					query.append(" and mem_tag like '%" + tags.get(i) + "%'");
+					query.append(" and mem_tag like '%" + tags.get(i) + "%')");
 				}
 			}
-		}*/
+		}			
 		
-		
-		log.info("헬스장검색 쿼리 : select * from "+query.toString());
-		
+		log.info("헬스장검색 쿼리 : select * from "+query.toString());		
 		
 		return dao.gymSearchResult(query.toString());
 	}
