@@ -296,9 +296,9 @@
 </script>
 <div id="join">
 	<div class="join_wrap">
-		<h3>일반회원 회원가입</h3>
+		<h3>트레이너 회원가입</h3>
 		<div class="join_panel">
-			<form action="memberjoin.do" name="member" id="userCheck" method="post"	role="form">
+			<form action="memberjoin.do" name="trainer" id="userCheck" method="post"	role="form">
 
 				<div class="join-form_group">
 					<label for="mail">이메일(아이디)</label> <input type="text"
@@ -363,6 +363,14 @@
 				<div class="join-form_group">
 					<input class="form-control" placeholder="상세주소" name="memDeAddr"
 						id="memDeAddr" type="text">
+				</div>
+				<!-- 트레이너 가입정보 -->
+				<div class="join-form_group">
+				<label for="gymNo">소속 헬스장</label> <input
+						type="text"class="form-control" id="gymNo" name="gymNo" style="display : inline;"
+						readonly="readonly" /> <input type="button" class="btn btn-default" onclick="searchGym()"
+						name="joinGymSearchBtn" value="헬스장 검색">
+					<div class="check_font" id="phone_check"></div>
 				</div>
 				<div class="join-form-group text-center">
 					<button type="submit" class="btn btn-primary">회원가입</button>

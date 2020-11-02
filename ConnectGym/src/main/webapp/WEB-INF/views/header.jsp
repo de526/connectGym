@@ -51,8 +51,14 @@
 		
 		<div class="signBar">
 			<ul>
-				<li><a href="/ConnectGym/login">로그인</a></li>			
-				<li><a href="/ConnectGym/join">회원가입</a></li>
+				<li><c:if test="${member == null }"><a href="login">로그인</a></c:if></li>
+				<li><c:if test="${member == null }"><a href="selectjoin">회원가입</a></c:if></li>
+				<li>
+					<c:if test="${member != null }">
+						<p>${member.memNick }님 안녕하세요.</p>
+					</c:if>				
+				</li>
+				<li><c:if test="${member != null }"><a href="logout">로그아웃</a></c:if></li>
 			</ul>
 		</div>
 	</div>

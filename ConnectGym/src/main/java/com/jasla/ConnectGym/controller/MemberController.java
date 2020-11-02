@@ -37,10 +37,20 @@ public class MemberController {
 //		return "member/join";
 //	}
 	
-	//회원가입 페이지 이동
-	@RequestMapping("/join")
-	public String gojoin(Model model) {
+	//가입 선택 페이지 이동
+	@RequestMapping("/selectjoin")
+	public String goselectjoin(Model model) {
+		return "member/selectJoin";
+	}
+	//일반회원 가입 페이지 이동
+	@RequestMapping("/memberjoin")
+	public String gomemjoin(Model model) {
 		return "member/memberJoin";
+	}
+	//트레이너 가입 페이지 이동
+	@RequestMapping("/trainerjoin")
+	public String gotrainerjoin(Model model) {
+		return "member/trainerJoin";
 	}
 	//로그인 페이지 이동
 	@RequestMapping("/login")
