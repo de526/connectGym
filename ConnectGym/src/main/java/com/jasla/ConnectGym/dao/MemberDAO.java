@@ -6,6 +6,9 @@ import com.jasla.ConnectGym.domain.MemberDTO;
 
 public interface MemberDAO {
 	
+	//로그인
+	public MemberDTO login(MemberDTO dto);
+	
 	// 회원가입
 	int insertMember(MemberDTO dto);
 	

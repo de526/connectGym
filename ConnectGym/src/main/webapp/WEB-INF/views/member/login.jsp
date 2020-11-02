@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../header.jsp" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script>
 	$(document).ready(function() {
 		
@@ -36,6 +36,8 @@
 	</c:if>
 	
 	<form id="login-form" name="login-form" action="login.do" method="POST">
+		<c:if test="${member == null }">
+		
 		<div class="join-form_group">
 			<table>
 				<tr>
@@ -56,6 +58,13 @@
 				
 				
 		</div>
+		</c:if>
+		<c:if test="${member != null }">
+			<div>
+				<p>${member.memMail }님 환영합니다.
+				<button id="logoutBtn" type="button">로그아웃</button>
+			</div>
+		</c:if>
 	</form>
 </div>
 <jsp:include page="../footer.jsp" />

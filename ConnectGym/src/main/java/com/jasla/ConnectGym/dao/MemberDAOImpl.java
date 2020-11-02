@@ -17,6 +17,11 @@ public class MemberDAOImpl implements MemberDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
+	@Override
+	public MemberDTO login(MemberDTO dto) {
+		return sqlSession.selectOne("login", dto);
+	}
 	// 회원가입
 	@Override
 	public int insertMember(MemberDTO dto) {

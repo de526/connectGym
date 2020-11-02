@@ -1,10 +1,14 @@
 package com.jasla.ConnectGym.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jasla.ConnectGym.domain.MemberDTO;
 import com.jasla.ConnectGym.service.MemberService;
@@ -65,8 +70,28 @@ public class MemberController {
 		return "member/joinResult";
 	}
 	// 로그인
-	@RequestMapping("/login.do")
-	public String login(MemberDTO dto) {
-		return "member/main";
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public String login(MemberDTO dto, HttpServletRequest req, RedirectAttributes rttr) {
+		log.info("post login");
+		
+		HttpSession session = req.getSession();
+		MemberDTO login = service.login(dto);
+		
+		if(login == null) {
+			session.setAttribute("member", null);
+			rttr.addFlashAttribute("msg", false);
+		} else {
+			session.setAttribute("member", login);
+		}
+		
+		return "redirect:/";
 	}
+	
+	@RequestMapping(value= "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
+		
 }
