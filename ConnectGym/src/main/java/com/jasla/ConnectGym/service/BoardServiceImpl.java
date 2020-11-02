@@ -29,6 +29,11 @@ public class BoardServiceImpl implements BoardService {
 	public BoardDTO getBoardDetail(int boNo) {
 		return bdao.getBoardDetail(boNo);
 	}
+	
+	@Override
+	public int plusHit(int boNo) {
+		return bdao.plusHit(boNo);
+	}	
 
 	
 	

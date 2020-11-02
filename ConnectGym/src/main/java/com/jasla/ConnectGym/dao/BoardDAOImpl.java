@@ -6,10 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jasla.ConnectGym.controller.BoardController;
 import com.jasla.ConnectGym.domain.BoardDTO;
 import com.jasla.ConnectGym.domain.PagingDTO;
-import com.jasla.ConnectGym.mapper.BoardMapper;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -31,5 +29,10 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public BoardDTO getBoardDetail(int boNo) {
 		return sqlSession.selectOne("getBoardDetail", boNo);
+	}
+	
+	@Override
+	public int plusHit(int boNo) {
+		return sqlSession.update("plusHit", boNo);
 	}
 }

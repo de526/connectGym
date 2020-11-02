@@ -16,4 +16,7 @@ public interface BoardMapper {
 	
 	// 게시글 상세 조회
 	public BoardDTO getBoardDetail(int boNo);
+	
+	// 조회수 증가
+	public int plusHit(int boNo);
 }

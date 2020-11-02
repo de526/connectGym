@@ -1,6 +1,5 @@
 package com.jasla.ConnectGym.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,6 @@ public class BoardController {
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String home(PagingDTO pdto, Model model, @RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
 		int total = service.countBoard();
 		if (nowPage == null && cntPerPage == null) {
@@ -41,10 +39,7 @@ public class BoardController {
 
 		List<BoardDTO> list = service.selectBoard(pdto);
 
-		for (int i = 0; i < list.size(); i++) {
-			String newDate = sdf.format(list.get(i).getBoWritedate());
-			list.get(i).setBoDate(newDate);
-		}
+	
 		model.addAttribute("viewAll", list);
 
 		return "board/board";
@@ -53,16 +48,21 @@ public class BoardController {
 	@RequestMapping(value = "/boardDetail.do")
 	public String boardDetail(@RequestParam(value = "boNo", required = false) int boNo, Model model) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
+		service.plusHit(boNo);
 		BoardDTO bdto = service.getBoardDetail(boNo);
-		String newDate = sdf.format(bdto.getBoWritedate());
-		bdto.setBoDate(newDate);
-
 		model.addAttribute("boardDet", bdto);
 
 		return "board/boardDetail";
 	}
+	
+	
+	@RequestMapping(value = "/writeBoard.do", method = RequestMethod.GET)
+	public String writeBoard() {
+	
+		return "board/insertBoard";
+	}
+
 
 }
 

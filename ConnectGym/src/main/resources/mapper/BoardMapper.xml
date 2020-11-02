@@ -29,7 +29,17 @@
 			
 	<!-- 게시글 상세 조회 -->
 	<select id="getBoardDetail" parameterType="int" resultType="com.jasla.ConnectGym.domain.BoardDTO">
-		SELECT * FROM board_t WHERE bo_no = #{boNo}
+		SELECT *
+		FROM board_t 
+		WHERE bo_no = #{boNo}
 	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="plusHit" parameterType="int">
+		UPDATE BOARD_T
+		SET BO_HIT = BO_HIT + 1
+		WHERE BO_NO = #{boNo}
+	</update>
+	
 	
 </mapper>

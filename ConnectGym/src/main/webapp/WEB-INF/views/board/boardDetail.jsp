@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"
 	type="text/javascript"></script>
@@ -42,16 +43,16 @@ a {
 		<div class="col-md-12">
 			<table class="table table-striped">
 				<tr>
-					<td id="head" class="col-md-2 text-center">번호</td>
-					<td class="col-md-2 text-left">${boardDet.boNo}</td>
-					<td id="head" class="col-md-2 text-center">작성자</td>
-					<td class="col-md-2 text-left">${boardDet.memNo}</td>
-					<td id="head" class="col-md-1 text-center">작성일</td>
-					<td class="col-md-3 text-center">${boardDet.boDate}</td>
+					<td id="head" class="col-md-3 text-center">번호</td>
+					<td class="col-md-3 text-left">${boardDet.boNo}</td>
+					<td id="head" class="col-md-3 text-center">조회수</td>
+					<td class="col-md-3 text-left">${boardDet.boHit}</td>
 				</tr>
 				<tr>
-					<td id="head" style="text-align: center;">제목</td>
-					<td colspan="5">${boardDet.boTitle}</td>
+					<td id="head" class="col-md-3 text-center" style="text-align: center;">제목</td>
+					<td class="col-md-3 text-left">${boardDet.boTitle}</td>
+					<td id="head" class="col-md-3 text-center">작성일</td>
+					<td class="col-md-3 text-left"><fmt:formatDate value="${boardDet.boWritedate}" pattern="yyyy-MM-dd hh:mm" /></td>
 				</tr>
 				<tr>
 					<td id="head" style="text-align: center;">내용</td>

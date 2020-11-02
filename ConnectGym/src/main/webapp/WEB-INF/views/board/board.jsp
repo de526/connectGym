@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"
 	type="text/javascript"></script>
@@ -75,14 +76,14 @@ a {
 <!-- 							<td class="col-4 text-center"><a href="boardDetail.do" -->
 <%-- 								id="boNo_${boNo}" data-toggle="modal" data-target="#boardDetail">${btemp.boTitle}</a></td> --%>
 							<td class="col-2 text-center">${btemp.memNo}</td>
-							<td class="col-2 text-center">${btemp.boDate}</td>
+							<td class="col-2 text-center"><fmt:formatDate value="${btemp.boWritedate}" pattern="yyyy-MM-dd hh:mm" /></td>
 							<td class="col-2 text-center">${btemp.boHit}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<div align="right">
-				<button type="button" class="btn btn-default navbar-btn" onclick="location.href='#'">게시글
+				<button type="button" class="btn btn-default navbar-btn" onclick="location.href='writeBoard.do'">게시글
 					작성</button>
 			</div>
 		</div>
