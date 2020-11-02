@@ -13,7 +13,8 @@ public interface SearchMapper {
 	
 	//헬스장 전체 가져오기
 	@Select("SELECT * FROM "
-			+ "(select g.gym_no,g.gym_name,g.gym_info,g.gym_num,g.gym_addr,g.gym_x,g.gym_y,i.img_name from gym_t g,img_t i where i.gym_no = g.gym_no and i.img_name like '%main%')")
+			+ "(select g.gym_no,g.gym_name,g.gym_info,g.gym_num,g.gym_addr,g.gym_x,g.gym_y,i.img_name "
+			+ "from gym_t g,img_t i where i.gym_no = g.gym_no and i.img_name like '%#_1%' escape '#')")
 	List<GymDTO> selectGymAll(); 
 	
 	//트레이너 전체 가져오기
@@ -26,7 +27,7 @@ public interface SearchMapper {
 	
 	//태그값, 검색값 가지고 헬스장 검색
 	@Select("select * from "
-			+ "(select g.gym_no,g.gym_name,g.gym_info,g.gym_num,g.gym_addr,g.gym_x,g.gym_y,i.img_name from gym_t g,img_t i where i.gym_no = g.gym_no and i.img_name like '%main%' )g where ${query}")
+			+ "(select g.gym_no,g.gym_name,g.gym_info,g.gym_num,g.gym_addr,g.gym_x,g.gym_y,i.img_name from gym_t g,img_t i where i.gym_no = g.gym_no and i.img_name like '%#_1%' escape '#')g where ${query}")
 	List<GymDTO> gymSearchResult(String query);
 	
 }
