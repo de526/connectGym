@@ -82,7 +82,7 @@ public class SearchServiceImpl implements SearchService {
 			}
 		}			
 		
-		log.info("헬스장검색 쿼리 : select * from "+query.toString());		
+		log.info("헬스장검색 쿼리 : select * from ~~ where"+query.toString());		
 		
 		return dao.gymSearchResult(query.toString());
 	}

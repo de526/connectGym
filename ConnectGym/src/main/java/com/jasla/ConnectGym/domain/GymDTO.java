@@ -16,4 +16,6 @@ public class GymDTO {
 	private String gymSunday;
 	private String gymHoliday;
 	
+	private String imgName;
+	
 }

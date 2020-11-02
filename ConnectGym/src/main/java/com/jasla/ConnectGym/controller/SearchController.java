@@ -27,12 +27,11 @@ public class SearchController {
 	// DB 연결 확인하는 컨트롤러
 	@RequestMapping("/search")
 	public String dbtest(Model model) {
-		log.info("검색 페이지 모델 가지고 가는곳 ");
-		//메인에 기본으로 트레이너 정보먼저 뿌리기!		
+		log.info("검색 페이지 가는 컨트롤러 ");
 		
-		model.addAttribute("gymList", service.selectGymAll());
-		model.addAttribute("traList", service.selectTraAll());
-		log.info(service.selectTraAll());
+//		model.addAttribute("gymList", service.selectGymAll());
+//		model.addAttribute("traList", service.selectTraAll());
+//		log.info(service.selectTraAll());
 		return "search/searchPage";
 	}
 	
@@ -54,9 +53,13 @@ public class SearchController {
 			if(tags.size()==0 & searchValue.length()==0) {
 				log.info("둘다 null 이라 전체 가져오는거 타는중 ");
 				model.addAttribute("gymList", service.selectGymAll());
+				log.info(service.selectGymAll().get(0).getImgName());
+			
 			}else {
 				log.info("헬스장 검색 결과 가져오기");
 				model.addAttribute("gymList", service.gymSearchResult(tags, searchValue));
+				//사진 저장할곳 
+				
 			}
 			
 			return "search/searchGym";
@@ -72,9 +75,7 @@ public class SearchController {
 			}
 		
 			return "search/searchTrainer";
-		}
-		
-		
+		}	
 			
 	}
 	
