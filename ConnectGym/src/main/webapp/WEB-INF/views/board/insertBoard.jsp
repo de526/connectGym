@@ -26,7 +26,7 @@
 		}
 	</style>
 </head>
-<jsp:include page="../header.jsp" />
+<jsp:include page="../header2.jsp" />
 <body>
 	<div class="container-fluid">
 		<div id="insertBoard">

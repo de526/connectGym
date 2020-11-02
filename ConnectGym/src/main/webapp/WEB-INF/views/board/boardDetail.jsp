@@ -36,7 +36,7 @@ a {
 	
 </script>
 <title>게시판</title>
-<jsp:include page="../header.jsp" />
+<jsp:include page="../header2.jsp" />
 
 <div class="container-fluid">
 	<div id="boardDetail">
