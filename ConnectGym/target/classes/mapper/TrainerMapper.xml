@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="com.jasla.ConnectGym.mapper.GymMapper"> 인터페이스 자바 잡는거-->
+
+<mapper namespace="mapper.TrainerMapper"><!-- 이건 xml 잡는거고  -->
+	<!-- img table 조회 -->
+	<select id="tImgSelect" resultType="String" parameterType="int">
+		SELECT img_name FROM img_T i,(select gym_no from member_T where mem_No = #{memNo}) g where i.gym_no = g.gym_no;
+	</select>
+	
+	
+
+	
+</mapper>

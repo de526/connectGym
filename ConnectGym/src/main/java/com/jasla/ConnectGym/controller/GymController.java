@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jasla.ConnectGym.service.GymService;
+import com.jasla.ConnectGym.service.TrainerService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,16 +17,25 @@ import lombok.extern.log4j.Log4j;
 public class GymController {
 
 	@Autowired
-	public GymService service;
+	public GymService gymService;
 
-	// DB 연결 확인하는 컨트롤러
+	// gymPage 이동 컨트롤러
 	@RequestMapping("/gym")
-	public String dbtest(Model model, @RequestParam("gymNo") int gymNo) {
-		log.info("gym_t, img_t db연결 테스트 컨트롤러");
+	public String gym(Model model, @RequestParam("gymNo") int gymNo) {
+		log.info("gymPage 이동 컨트롤러");
 		
+		return gymService.gymService(model, gymNo);
+	}
+	
+	@Autowired
+	public TrainerService trainerService;
+
+	// trainerPage 이동 컨트롤러
+		@RequestMapping("/trainer")
+	public String trainer(Model model, @RequestParam("memNo") int memNo) {
+		log.info("trainerPage 이동 컨트롤러");
 		
-		
-		return service.selectAll(model, gymNo);
+		return trainerService.trainerService(model, memNo);
 	}
 	
 }

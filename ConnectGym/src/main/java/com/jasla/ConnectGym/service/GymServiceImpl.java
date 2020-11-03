@@ -19,7 +19,7 @@ public class GymServiceImpl implements GymService {
 	public GymDAO dao;
 		
 	@Override
-	public String selectAll(Model model, int gymNo) {
+	public String gymService(Model model, int gymNo) {
 		List<String> list = dao.imgSelect(gymNo);
 		model.addAttribute("imglist", list);
 		

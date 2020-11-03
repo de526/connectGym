@@ -275,8 +275,8 @@
 		
 		// 이미지 전환 스크립트
 		var gymImg = new Array();
-		var imgleng = ${imglist.size()};
-		var imglist = ${imgString};
+		var imgleng = ${tImglist.size()};
+		var imglist = ${tImgString};
 		
 		
 		for (var i = 0; i < imgleng; i++) {
@@ -322,17 +322,17 @@
 	    	<div class="view">
 	    		
 	    		<div class="view_main">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" onclick="board(0)" />
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${tImglist.get(0) }" onclick="board(0)" />
 	    		</div>
 	    		
 	    		<div class="view_sub1">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(1) }" onclick="board(1)"/>
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(2) }" onclick="board(2)"/>
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${tImglist.get(1) }" onclick="board(1)"/>
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${tImglist.get(2) }" onclick="board(2)"/>
 	    		</div>
 	    		
 	    		<div class="view_sub2">
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(3) }" onclick="board(3)"/>
-	    			<img alt="" src="/ConnectGym/resources/images/gym/${imglist.get(4) }" onclick="board(4)"/>
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${tImglist.get(3) }" onclick="board(3)"/>
+	    			<img alt="" src="/ConnectGym/resources/images/gym/${tImglist.get(4) }" onclick="board(4)"/>
 	    		</div>
 	    		
 	    	</div>
@@ -345,7 +345,7 @@
     		<div class="left_button" onclick="left()"> </div>
     		
     		<div class="gym_img">
-    			<img id="gym_img" src="/ConnectGym/resources/images/gym/${imglist.get(0) }" />
+    			<img id="gym_img" src="/ConnectGym/resources/images/gym/${tImglist.get(0) }" />
     		</div>
     		
  			<button class="x_button" type="button" onclick="exit()"></button>
@@ -359,10 +359,13 @@
 	    	<div class="navBar">
 	    	
 	    		<ul>
-					<li><a href="#center_info">센터소개</a></li>			
-					<li><a href="#center_time">운영시간</a></li>
-					<li><a href="#center_trainer">트레이너</a></li>
-					<li><a href="#center_Addr">위 &nbsp;치</a></li>
+					<li><a href="#">후&nbsp;기</a></li>			
+					<li><a href="#">소&nbsp;개</a></li>
+					<li><a href="#">프로그램</a></li>
+					<li><a href="#">이용가격</a></li>
+					<li><a href="#">스케줄</a></li>
+					<li><a href="#">센터정보</a></li>
+					<li><a href="#">위&nbsp;치</a></li>
 				</ul>
 				
 	    	</div>
@@ -383,9 +386,6 @@
     		<br/>
     		<br/>
     		
-	    		<h1>${gdto.gymName }</h1>
-	    		<br/>
-	    		<p>${gdto.gymAddr }</p>
     		
     		<br id="center_info" />
     		<br/>
@@ -394,7 +394,6 @@
     		
 	    		<h2>센터 소개</h2>
 	    		<br/>
-	    		<p>${gdto.gymInfo }</p>
 	    		
     		<br id="center_time" />
     		<br/>
@@ -403,17 +402,6 @@
     		
 	    		<h2>운영 시간</h2>
 	    		<br/>
-	    		<p>평일 ${gdto.gymWeekday }</p>
-	    		
-	    		<c:if test="${not empty gdto.gymSaturday }">
-	    		<p>토요일 ${gdto.gymSaturday }</p>
-	    		</c:if>
-	    		
-	    		<c:if test="${not empty gdto.gymSunday }">
-	    		<p>일요일 ${gdto.gymSunday }</p>
-	    		</c:if>
-	    		
-	    		<p>휴무일 ${gdto.gymHoliday }</p>
 	    		
     		<br id="center_trainer" />
     		<br/>
@@ -424,30 +412,7 @@
     			<br />
     			
 		    		<div class="trainer_box">
-			    		<c:forEach var="gmdto" items="${gmdto }" varStatus="i">
-			    		
-								<div class="trainer">
-								
-				    				<div>
-				    			
-										<img src="/ConnectGym/resources/images/test/trainer${i.count}.jpg">
-										
-									</div>
-									
-									<div>
-									
-										<h3>${gmdto.memNick }</h3>
-										<p>${gmdto.memComment }</p>
-										<div id="trainer_tag_${i.count}" class="trainer_tag"></div>
-										
-									</div>
-									
-				    			</div>
-									<script type="text/javascript">
-										splitTag('${gmdto.memTag}', '${i.count}')
-									</script>
-			    		
-						</c:forEach>
+			    	
 		    		</div>
     		
     		<br id="center_Addr" />
@@ -459,7 +424,7 @@
     			<br />
     			
     			<div>
-    				<p>${gdto.gymAddr }</p>
+    				<p></p>
     			</div>
     			<br />
     			
@@ -474,10 +439,10 @@
     	
     	<div class="fix_box">
     	
-    		<img src="/ConnectGym/resources/images/gym/${imglist.get(0) }">
-    		<h2>${gdto.gymName }</h2>
+    		<img src="/ConnectGym/resources/images/gym/${tImglist.get(0) }">
+    		<h2></h2>
     		
-	    	<a href="tel:${gdto.gymNum }">전화하기</a>
+	    	<a href="tel:">전화하기</a>
     		
     	</div>
     	
@@ -531,7 +496,7 @@
 	      var geocoder = new kakao.maps.services.Geocoder();
 
 	      // 주소로 좌표를 검색합니다
-	      geocoder.addressSearch('${gdto.gymAddr}', function(result, status) {
+	      geocoder.addressSearch(''', function(result, status) {
 
 	    	    // 정상적으로 검색이 완료됐으면 
 	    	     if (status === kakao.maps.services.Status.OK) {
