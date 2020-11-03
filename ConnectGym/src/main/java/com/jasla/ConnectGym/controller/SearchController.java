@@ -78,6 +78,14 @@ public class SearchController {
 		log.info(mainSearch);
 		log.info(flag);
 		
+		if(flag.equals("gym")) {
+						
+			
+		}else if(flag.equals("trainer")) {
+			
+			
+		}
+		
 		return "zzzzzzz";
 	}
 	

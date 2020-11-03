@@ -34,7 +34,9 @@ public interface SearchMapper {
 			+ "where ${query}")
 	List<GymDTO> gymSearchResult(String query);
 	
-	@Select("")
+	@Select("select gym_no,gym_name "
+			+ "from gym_t "
+			+ "where gym_name like ")
 	List<GymDTO> mainGymSearch(String mainSearch);
 	
 	@Select("")
