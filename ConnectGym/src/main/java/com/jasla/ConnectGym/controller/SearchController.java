@@ -41,12 +41,9 @@ public class SearchController {
 			@RequestParam("search") String searchValue,@RequestParam("flag") String flag, Model model) {
 
 		log.info("태그랑 서치값 받아서 헬스장/트레이너 목록 가져오는 ajax rest controller");
-
 		log.info(tags.size());
 		log.info(searchValue.length());
 		log.info(flag);
-		
-
 		//flag가 gym 이면 헬스장 목록 가져오기 
 		if(flag.equals("gym")) {
 			log.info("헬스장 리스트 가져오기");
@@ -58,10 +55,7 @@ public class SearchController {
 			}else {
 				log.info("헬스장 검색 결과 가져오기");
 				model.addAttribute("gymList", service.gymSearchResult(tags, searchValue));
-				//사진 저장할곳 
-				
 			}
-			
 			return "search/searchGym";
 		}else{
 			log.info("트레이너 리스트 가져오기");			
@@ -73,10 +67,18 @@ public class SearchController {
 				log.info("트레이너 검색 결과 가져오기");
 				model.addAttribute("traList",service.trainerSearchResult(tags, searchValue));
 			}
-		
 			return "search/searchTrainer";
 		}	
-			
+	}
+	
+	@RequestMapping("/mainSearch.do")
+	@ResponseBody
+	public String mainAutocomplete(@RequestParam("search") String mainSearch,@RequestParam("flag") String flag) {
+		log.info("메인 화면 자동완성 컨트롤러");
+		log.info(mainSearch);
+		log.info(flag);
+		
+		return "zzzzzzz";
 	}
 	
 
