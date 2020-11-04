@@ -33,6 +33,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int plusHit(int boNo) {
 		return bdao.plusHit(boNo);
+	}
+
+	@Override
+	public int insertBoard(BoardDTO bdto) {
+		return bdao.insertBoard(bdto);
 	}	
 
 	

@@ -2,7 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>	
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- Bootstrap -->
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js" type="text/javascript"></script>
+
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
 	type="text/javascript"></script>
@@ -70,7 +78,7 @@
 </script>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="header2.jsp" />
 	
 	<div class="main" id="main">
 
@@ -123,5 +131,5 @@
 		</div>
 	</div>
 	
-	<jsp:include page="footer.jsp" />
 </body>
+	<jsp:include page="footer.jsp" />

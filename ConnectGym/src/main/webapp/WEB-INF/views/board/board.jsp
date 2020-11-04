@@ -34,9 +34,37 @@ a {
 		location.href = "/ConnectGym/board?nowPage=${paging.nowPage}&cntPerPage="
 				+ sel;
 	}
+	
+	var left = 
+		{
+			pageSubmitFn : function(pageName){
+				$("#pageName").val(pageName);
+				
+				$("#frm").attr("action", pageName + ".do");
+				
+				$("#frm").submit();
+			}
+		}
+	
+	// 보고싶은 게시글의 row를 클릭하면 선택 게시글의 번호를 통해 해당 게시글로 이동
+	$(function() {
+		$(".rowClick").click(function() {
+			var boNo = $(this).children().eq(0).text();
+			
+			location.href = "boardDetail.do?boNo=" + boNo;
+		});
+	
+		// 게시글 작성 버튼 누르면 작성페이지로 이동
+		$("#writeBtn").click(function() {
+			left.pageSubmitFn("boardInsertForm");
+		});
+	});
+	
 </script>
+
 <title>게시판</title>
-<jsp:include page="../header2.jsp" />
+
+	<jsp:include page="../header2.jsp" />
 
 <div class="container-fluid">
 	<div id="board">
@@ -69,22 +97,23 @@ a {
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="btemp" items="${viewAll}">
-						<tr>
-							<td class="col-2 text-center">${btemp.boNo}</td>
-							<td class="col-4 text-center"><a href="boardDetail.do?boNo=${btemp.boNo}">${btemp.boTitle}</a></td>
+					<c:forEach var="boardList" items="${viewAll}">
+						<tr class="rowClick">
+							<td class="col-2 text-center">${boardList.boNo}</td>
+							<td class="col-4 text-center">${boardList.boTitle}</td>
 <!-- 							<td class="col-4 text-center"><a href="boardDetail.do" -->
 <%-- 								id="boNo_${boNo}" data-toggle="modal" data-target="#boardDetail">${btemp.boTitle}</a></td> --%>
-							<td class="col-2 text-center">${btemp.memNo}</td>
-							<td class="col-2 text-center"><fmt:formatDate value="${btemp.boWritedate}" pattern="yyyy-MM-dd hh:mm" /></td>
-							<td class="col-2 text-center">${btemp.boHit}</td>
+							<td class="col-2 text-center">${boardList.memNo}</td>
+							<td class="col-2 text-center"><fmt:formatDate value="${boardList.boWritedate}" pattern="yyyy-MM-dd hh:mm" /></td>
+							<td class="col-2 text-center">${boardList.boHit}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<div align="right">
-				<button type="button" class="btn btn-default navbar-btn" onclick="location.href='writeBoard.do'">게시글
-					작성</button>
+				<button type="button" class="btn btn-default navbar-btn" id="writeBtn">
+					게시글작성
+				</button>
 			</div>
 		</div>
 	</div>

@@ -18,4 +18,7 @@ public interface BoardDAO {
 	
 	// 조회수 증가
 	public int plusHit(int boNo);
+	
+	// 게시글 등록
+	public int insertBoard(BoardDTO bdto);
 }

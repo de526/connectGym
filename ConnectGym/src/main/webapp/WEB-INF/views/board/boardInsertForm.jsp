@@ -18,6 +18,7 @@
 	
 	<!-- SmartEditor2 라이브러리 -->
 	<script type="text/javascript" src="resources/se2/js/HuskyEZCreator.js"	charset="utf-8"></script>
+	
 	<style>
 		#insertBoard {
 			width: 65%;
@@ -26,11 +27,12 @@
 		}
 	</style>
 </head>
-<jsp:include page="../header2.jsp" />
+	<jsp:include page="../header2.jsp" />
 <body>
 	<div class="container-fluid">
 		<div id="insertBoard">
 			<div class="col-md-12">
+			
 				<table class="table table-hover">
 					<tr>
 						<td class="col-4 text-center">제목</td>
@@ -39,20 +41,27 @@
 						</td>
 					</tr>
 					<tr>
+						<td class="col-4 text-center">작성자</td>
+						<td class="col-8 text-left">
+							<input type="text" class="form-control" name="writer" value="<c:out value='${memNick}'/>" readonly="readonly"/>
+						</td>
+					</tr>
+					<tr>
 						<td class="col-4 text-center">내용</td>
 						<td class="col-8 text-left">
-							<textarea rows="35" cols="100" id="ir1" name="ir1"	style="width: 100%; height: auto; resize: none;">
+							<textarea rows="35" cols="100" id="se2" name="se2"	style="width: 100%; height: auto; resize: none;">
 								에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면 됩니다.
 							</textarea>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" class="col-12 text-center">
-							<input type="button" id="save" value="저장" /> 
-							<input type="button" value="취소" />
-						</td>
+							<button type="button" id="insertBtn">등록</button> 
+							<button type="button" id="cancelBtn">취소</button>
+						</td> 
 					</tr>
 				</table>
+				
 				<div align="right">
 					<button type="button" class="btn btn-default navbar-btn"
 						onclick="history.back()">게시글 목록</button>
@@ -60,16 +69,75 @@
 			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
+	
+	
+		// SmartEditor2 적용 스크립트
 		var oEditors = [];
 		nhn.husky.EZCreator.createInIFrame({
 			oAppRef : oEditors,
-			elPlaceHolder : "ir1",
+			elPlaceHolder : "se2",
 			sSkinURI : "resources/se2/SmartEditor2Skin.html",
 			fCreator : "createSEditor2"
 		});
+		
+		if(editMode=='I'){
+			if(confirm("등록 하시겠습니까?")==true){
+				try {
+					// SmartEditor의 값을 Textarea로 전달해주는 코드
+					oEditors.getById["se2"].exec("UPDATE_CONTENTS_FIELD", []);
+					document.frm.action = regAddr;
+					document.frm.submit();
+					swal("", "등록 되었습니다.", "success");
+				}catch(exception){
+					swal("","데이터 등록을 실패하였습니다.", "error");
+				}
+			}
+		} else {
+			if(confirm("수정 하시겠습니까?")==true){
+				if(deleteTarget.length > 0){
+					document.frm.deleteTarget.value = deleteTarget;
+				}
+				try{
+					// SmartEditor의 값을 Textarea로 전달해주는 코드
+					oEditors.getById["se2"].exec("UPDATE_CONTENTS_FIELD", []);
+					document.frm.action = udtAddr;
+					document.frm.submit();
+					swal("","수정 되었습니다.", "success");
+					
+				}catch(exception){
+					swal("","데이터 수정에 실패했습니다.","error");	
+				}
+			}
+		}
+				
+		var insertForm = {
+				$insertBtn	: $,
+				init		: function() {
+					this.$insertBtn = $("insertForm");
+				},
+				
+				pageSubmitFn: function(pageName) {
+					this.$insertBtn.attr("action", pageName + ".do");
+					this.$insertBtn.submit();
+				}
+		}
+		
+		$(function() {
+			$("#cancelBtn").click(function() {
+				left.pageSubmitFn("boardList");
+			});
+			
+			$("#insertBtn").click(function() {
+				insertForm.init();
+				insertForm.pageSubmitFn("insertBoard");
+			});
+		});
+				
 	</script>
-<jsp:include page="../footer.jsp" />
+	
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
 

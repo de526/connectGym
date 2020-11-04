@@ -41,5 +41,10 @@
 		WHERE BO_NO = #{boNo}
 	</update>
 	
+	<!-- 게시글 작성 -->
+	<insert id="insertBoard" parameterType="com.jasla.ConnectGym.domain.BoardDTO">
+	
+	</insert>
+	
 	
 </mapper>
