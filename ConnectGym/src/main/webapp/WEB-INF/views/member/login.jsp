@@ -5,24 +5,24 @@
 <script>
 	$(document).ready(function() {
 		
-// 		 // 필드 공백 제거
-// 		 $("#memMail").val().replace(/\s/g, "");
-// 		 $("#memPw").val().replace(/\s/g, "");
+		 // 필드 공백 제거
+		 $("#memMail").val().replace(/\s/g, "");
+		 $("#memPw").val().replace(/\s/g, "");
 		 
-// 		 $("#login-form").click(function() {
+		 $("#login-form").click(function() {
 			
-// 			// 공백 여부 점검
-// 			if ($.trim($("#memMail").val()) == "" || 
-// 				$.trim($("#memPw").val()) == "")   {
+			// 공백 여부 점검
+			if ($.trim($("#memMail").val()) == "" || 
+				$.trim($("#memPw").val()) == "")   {
 				
-// 				alert("공백이 입력되었습니다. 다시 입력하십시오.");
-// 				$("#memMail").val("");
-// 				$("#memPw").val("");
-// 			} else {
+				alert("공백이 입력되었습니다. 다시 입력하십시오.");
+				$("#memMail").val("");
+				$("#memPw").val("");
+			} else {
 				
-// 				// 전송
-// 				$("#loginForm").submit();
-// 			}
+				// 전송
+				$("#loginForm").submit();
+			}
 	   	
 // 	   }) // login
 	   
