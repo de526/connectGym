@@ -116,8 +116,8 @@
 }
 
 #trainer .profile_img img{
-	width: 250px;
-    height: 250px;
+	width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 3px solid #c1c1c1;
 }
@@ -132,16 +132,17 @@
 	position: absolute;
 	top: 600px;
 	left: 1200px;
-	background-color: #040303c7;
+	border: 1px solid #c1c1c1;
 	z-index: 10;
 	text-align: center;
 	color: white;
 }
 
 #trainer .fix_box img {
-	width: 250px;
+	width: 200px;
 	height: 200px;
 	margin: 20px 0;
+	border-radius: 50%;
 }
 
 #trainer .fix_box a {
@@ -150,10 +151,11 @@
 	margin: auto;
 	margin-top: 50;
 	padding-top: 10px;
-	border: solid 1px #77777770;
+	border: solid 1px #c1c1c1;;
 	display: block;
 	color: white;
 	cursor: pointer;
+	background-color: #1f5eff;
 }
 
 #trainer .trainer {
@@ -408,21 +410,17 @@
     				<div class="profile_contents">
     		
     		<br/>		
-    					<h1>${tmdto.memNick }</h1>
+    					<h1 style="font-size: 30px;">${tmdto.memNick }</h1>
     		<br/>			
-    					<h3>${tmdto.trComment }</h3>
+    					<p style="font-size: 20px; font-weight: 100">${tmdto.trComment }</p>
     		<br/>
-    		<br/>			
     					<h2>전문분야</h2>
+    		<br/>			
     					<p>${tmdto.trTag }</p>
     					
     				</div>
     				
     			</div>
-    		
-    		<br/>
-    		<br/>
-    		<br/>
     		
     		
     		<br id="center_info" />
@@ -430,7 +428,7 @@
     		<br/>
     		<br/>
     		
-	    		<h2>센터 소개</h2>
+	    		<h2>트레이닝 후기</h2>
 	    		<br/>
 	    		
     		<br id="center_time" />
@@ -477,10 +475,10 @@
     	
     	<div class="fix_box">
     	
-    		<img src="/ConnectGym/resources/images/gym/${tImglist.get(0) }">
+    		<img src="/ConnectGym/resources/images/test/profile_default.png">
     		<h2></h2>
     		
-	    	<a href="tel:">전화하기</a>
+	    	<a href="tel:">PT 문의</a>
     		
     	</div>
     	

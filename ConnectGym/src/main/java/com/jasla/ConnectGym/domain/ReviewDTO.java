@@ -10,6 +10,7 @@ public class ReviewDTO {
 	private int rvNo;
 	private int memNo;
 	private int trNo;
+	private String rvNick;
 	private String rvContent;
 	private String rvRate;
 	private char rvDel;
