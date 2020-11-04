@@ -73,8 +73,9 @@
 	<jsp:include page="header.jsp" />
 	
 	<div class="main" id="main">
-	
+
 		<div class="info">
+			
 			<div class="info_icon">
 				<img src="/ConnectGym/resources/images/test/tel_icon.png"/>
 			</div>
@@ -104,8 +105,8 @@
 				</div>
 				
 				<div class="top_img">
-					<img src="/ConnectGym/resources/images/test/trainer1.jpg"/>
-					<img src="/ConnectGym/resources/images/test/trainer2.jpg"/>
+					<!-- 테스트용 링크 --><a href="/ConnectGym/gym?gymNo=4"><img src="/ConnectGym/resources/images/test/trainer1.jpg"/></a>
+					<!-- 테스트용 링크 --><a href="/ConnectGym/trainer?memNo=8"><img src="/ConnectGym/resources/images/test/trainer2.jpg"/></a>
 					<img src="/ConnectGym/resources/images/test/trainer3.jpg"/>
 				</div>
 			</div>
