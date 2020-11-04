@@ -37,7 +37,7 @@
 #gym .view_main img {
 	width: 100%;
 	height: 100%;
-	border-radius: 5%;
+	border-radius: 5% 0 0 5%;
 }
 
 #gym .view_sub1 {
@@ -50,7 +50,6 @@
 	width: 100%;
 	height: 50%;
 	padding: 3px;
-	border-radius: 10%;
 }
 
 #gym .view_sub2 {
@@ -62,7 +61,6 @@
 	width: 100%;
 	height: 50%;
 	padding: 3px;
-	border-radius: 10%;
 }
 
 #gym .nav_box {
@@ -118,7 +116,7 @@
 	height: 400px;
 	position: absolute;
 	top: 600px;
-	right: 20%;
+	left: 1200px;
 	background-color: #040303c7;
 	z-index: 10;
 	text-align: center;

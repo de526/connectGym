@@ -5,67 +5,65 @@
 
     
     <style>
-#gym {
+#trainer {
 	width: 65%;
 	margin: auto;
 }
 
-#gym .view div img {
+#trainer .view div img {
 	object-fit: cover;
 	cursor: pointer;
 }
 
-#gym .view_box {
+#trainer .view_box {
 	display: flex;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	width: 1230px;
 }
 
-#gym .view {
+#trainer .view {
 	display: inline-flex;
 	width: 100%;
 	height: 300px;
 }
 
-#gym .view_main {
+#trainer .view_main {
 	width: 50%;
 	height: 101%;
 	padding: 3px;
 }
 
-#gym .view_main img {
+#trainer .view_main img {
 	width: 100%;
 	height: 100%;
-	border-radius: 5%;
+	border-radius: 5% 0 0 5%;
 }
 
-#gym .view_sub1 {
+#trainer .view_sub1 {
 	width: 25%;
 	height: 100%;
 	margin-right: 6px;
 }
 
-#gym .view_sub1 img {
+#trainer .view_sub1 img {
 	width: 100%;
 	height: 50%;
 	padding: 3px;
-	border-radius: 10%;
 }
 
-#gym .view_sub2 {
+#trainer .view_sub2 {
 	width: 25%;
 	height: 100%;
 }
 
-#gym .view_sub2 img {
+#trainer .view_sub2 img {
 	width: 100%;
 	height: 50%;
 	padding: 3px;
-	border-radius: 10%;
 }
 
-#gym .nav_box {
+#trainer .nav_box {
 	width: 1230px;
 	height: 50px;
 	display: inline-flex;
@@ -77,13 +75,13 @@
 	border-bottom: solid 2px #77777770;
 }
 
-#gym ul {
+#trainer ul {
 	margin: 0;
 	list-style: none;
 	display: inline-flex;;
 }
 
-#gym .navBar ul li {
+#trainer .navBar ul li {
 	font-size: 16px;
 	font-family: Microsoft YaHei, Microsoft YaHei-Normal;
 	font-weight: Normal;
@@ -92,46 +90,61 @@
 	margin-right: 20px;
 }
 
-#gym a.on {
+#trainer a.on {
 	color: #009dff;
 	box-shadow: inset 0 -3px 0 #009dff;
 	padding-bottom: 15px;
 }
 
-#gym .button {
+#trainer .button {
 	width: 100px;
 }
 
-#gym .button img {
+#trainer .button img {
 	width: 30px;
 	height: 30px;
 	margin-right: 10px;
 }
 
-#gym .main_box {
+#trainer .main_box {
 	width: 700px;
 	margin-left: 30px;
 }
 
-#gym .fix_box {
+#trainer .profile{
+	display: inline-flex;
+}
+
+#trainer .profile_img img{
+	width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid #c1c1c1;
+}
+
+#trainer .profile_contents{
+    margin-left: 50px;
+}
+
+#trainer .fix_box {
 	width: 300px;
 	height: 400px;
 	position: absolute;
 	top: 600px;
-	right: 20%;
+	left: 1200px;
 	background-color: #040303c7;
 	z-index: 10;
 	text-align: center;
 	color: white;
 }
 
-#gym .fix_box img {
+#trainer .fix_box img {
 	width: 250px;
 	height: 200px;
 	margin: 20px 0;
 }
 
-#gym .fix_box a {
+#trainer .fix_box a {
 	width: 250px;
 	height: 30px;
 	margin: auto;
@@ -143,7 +156,7 @@
 	cursor: pointer;
 }
 
-#gym .trainer {
+#trainer .trainer {
 	display: inline-flex;
 	width: 300px;
 	height: 110px;
@@ -151,19 +164,19 @@
 	border: solid 1px #77777770;
 }
 
-#gym .trainer div img {
+#trainer .trainer div img {
 	width: 100px;
 	height: 100px;
 	margin-right: 20px;
 }
 
-#gym .trainer_Tag{
+#trainer .trainer_Tag{
 	display: inline-flex;
 	flex-wrap: wrap;
 }
 
 
-#gym .trainer_Tag span {
+#trainer .trainer_Tag span {
 		border-radius: 5px;
 		padding: 3px;
 		text-align: center;
@@ -171,12 +184,12 @@
 		background-color: grey;
 	}
 
-#gym #map {
+#trainer #map {
 	width: 600px;
 	height: 350px;
 }
 
-#gym .img_board {
+#trainer .img_board {
 	width: 100%;
 	height: 100%;
 	z-index: 100;
@@ -188,19 +201,19 @@
 	justify-content: center;
 }
 
-#gym .gym_img {
+#trainer .gym_img {
 	width: 50%;
 	height: 70%;
 	margin-top: 100px;
 }
 
-#gym .gym_img img {
+#trainer .gym_img img {
 	width: 100%;
 	height: 100%;
 	object-fit: fill;
 }
 
-#gym .x_button{
+#trainer .x_button{
 	position: relative;
 	-webkit-appearance: none;
 	border-radius: 0;	
@@ -213,8 +226,8 @@
 	background-color:  #77777700;
 }
 
-#gym .x_button:after,
-#gym .x_button:before{
+#trainer .x_button:after,
+#trainer .x_button:before{
 	content: "";
 	display: block;
 	position: absolute;
@@ -225,14 +238,14 @@
 	border-radius: 2px;
 	background: #fcfcfc;
 }
-#gym .x_button:after{
+#trainer .x_button:after{
 	transform: rotate(45deg);
 }
-#gym .x_button:before{
+#trainer .x_button:before{
 	transform: rotate(-45deg);
 }
 
-#gym .left_button {
+#trainer .left_button {
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
@@ -244,7 +257,7 @@
 	cursor: pointer;
 }
 
-#gym .right_button {
+#trainer .right_button {
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
@@ -315,7 +328,7 @@
 
     <jsp:include page="../header.jsp" />
     
-    <div id="gym">
+    <div id="trainer">
     
 	    <div class="view_box">
 	    
@@ -382,6 +395,31 @@
     	
     	<div class="main_box">
     	
+    		<br/>
+    		<br/>
+    		<br/>
+    		
+    			<div class="profile">
+    			
+    				<div class="profile_img">
+    					<img src="/ConnectGym/resources/images/test/profile_default.png" />
+    				</div>
+    				
+    				<div class="profile_contents">
+    		
+    		<br/>		
+    					<h1>${tmdto.memNick }</h1>
+    		<br/>			
+    					<h3>${tmdto.trComment }</h3>
+    		<br/>
+    		<br/>			
+    					<h2>전문분야</h2>
+    					<p>${tmdto.trTag }</p>
+    					
+    				</div>
+    				
+    			</div>
+    		
     		<br/>
     		<br/>
     		<br/>

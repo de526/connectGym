@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.jasla.ConnectGym.dao.TrainerDAO;
+import com.jasla.ConnectGym.domain.MemberDTO;
 
 
 @Service
@@ -31,6 +32,9 @@ public class TrainerServiceImpl implements TrainerService {
 		}
 		img += "]";
 		model.addAttribute("tImgString", img);
+		
+		MemberDTO tmdto = dao.trainerSelect(memNo);
+		model.addAttribute("tmdto", tmdto);
 		
 		return "gym/trainerPage";
 	}

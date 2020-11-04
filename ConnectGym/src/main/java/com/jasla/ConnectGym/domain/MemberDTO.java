@@ -23,9 +23,14 @@ public class MemberDTO {
 	private Date memJoindate;
 	private Date memUpdate;
 	private int memLevel;
-	private String memInfo;
-	private String memComment;
-	private String memTag;
+	private String trInfo;
+	private String trComment;
+	private String trTag;
+	private int trPrice;
+	private String trWeekday;
+	private String trSaturday;
+	private String trSunday;
+	private String trHoliday;
 	
 	
 
