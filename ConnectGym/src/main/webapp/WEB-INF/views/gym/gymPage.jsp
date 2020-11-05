@@ -435,14 +435,14 @@
 									<div>
 									
 										<h3>${gmdto.memNick }</h3>
-										<p>${gmdto.memComment }</p>
+										<p>${gmdto.trComment }</p>
 										<div id="trainer_tag_${i.count}" class="trainer_tag"></div>
 										
 									</div>
 									
 				    			</div>
 									<script type="text/javascript">
-										splitTag('${gmdto.memTag}', '${i.count}')
+										splitTag('${gmdto.trTag}', '${i.count}')
 									</script>
 			    		
 						</c:forEach>

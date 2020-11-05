@@ -78,7 +78,7 @@
 </script>
 </head>
 <body>
-	<jsp:include page="header2.jsp" />
+	<jsp:include page="header.jsp" />
 	
 	<div class="main" id="main">
 
@@ -87,7 +87,7 @@
 			<div class="info_icon">
 				<img src="/ConnectGym/resources/images/test/tel_icon.png"/>
 			</div>
-			<div>
+			<div class="info_contents">
 				<p>고객센터 : 1588-3082</p>
 				<p>운영시간 : 09:00~17:00</p>
 			</div>
