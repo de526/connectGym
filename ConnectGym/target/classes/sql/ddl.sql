@@ -18,9 +18,9 @@ drop sequence member_seq;
 drop sequence review_seq;
 
 CREATE TABLE gym_t (			
-gym_no		NUMBER(6)		NOT NULL,
+gym_no		NUMBER(6)			NOT NULL,
 gym_name	VARCHAR2(30)		UNIQUE NOT NULL,
-gym_info		VARCHAR2(2000)		NULL,
+gym_info	VARCHAR2(2000)		NULL,
 gym_num		VARCHAR2(20)		NULL,
 gym_addr	VARCHAR2(300)		NULL,
 gym_x		VARCHAR2(100)		NULL,
@@ -32,13 +32,13 @@ gym_holiday	VARCHAR2(50)		NOT NULL
 );			
 
 CREATE TABLE member_t (			
-mem_no		NUMBER(6)		NOT NULL,
-gym_no		NUMBER(6)		NULL,
+mem_no		NUMBER(6)			NOT NULL,
+gym_no		NUMBER(6)			NULL,
 mem_mail	VARCHAR2(30)		UNIQUE NOT NULL,
 mem_pw		VARCHAR2(30)		NOT NULL,
 mem_nick	VARCHAR2(20)		UNIQUE,
 mem_name	VARCHAR2(20)		NOT NULL,
-mem_gender	CHAR(1)			NULL,
+mem_gender	CHAR(1)				NULL,
 mem_birth	VARCHAR2(20)		NOT NULL,
 mem_zipcode	VARCHAR2(20)		NULL,
 mem_addr	VARCHAR2(150)		NULL,
@@ -46,9 +46,9 @@ mem_de_addr	VARCHAR2(150)		NULL,
 mem_phone	VARCHAR2(20)		NULL,
 mem_leave	CHAR(1)			DEFAULT 'F',
 mem_joindate	DATE			NOT NULL,
-mem_update	DATE			NULL,
-mem_level	NUMBER			NULL,
-tr_info		CLOB			NULL,
+mem_update	DATE				NULL,
+mem_level	NUMBER				NULL,
+tr_info		CLOB				NULL,
 tr_comment	VARCHAR2(500)		NULL,
 tr_tag		VARCHAR2(1000)		NULL,
 tr_price 		NUMBER(7) 		NULL,

@@ -3,6 +3,17 @@
 <jsp:include page="../header.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+
+.tagBox {
+	width: 60%;
+	/* 	height: 80px;  */
+	border: 2px solid #D8D8D8;
+	border-radius: 10px;
+	background-color: #D8D8D8;
+	padding: 10px;
+	text-align: center;
+	margin: 0 auto;
+};
 </style>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
@@ -293,6 +304,18 @@
 				}).open();
 	}; // 
 	
+	//체크박스 라벨 누르면 색 변하기
+	$(function() {
+		get_searchList();
+		$('label').click(function() {
+			if ($(this).hasClass('on')) {
+				$(this).removeClass('on')
+			} else {
+				$(this).addClass('on')
+			}
+		})
+	})
+	
 </script>
 <div id="join">
 	<div class="join_wrap">
@@ -366,11 +389,16 @@
 				</div>
 				<!-- 트레이너 가입정보 -->
 				<div class="join-form_group">
-				<label for="gymNo">소속 헬스장</label> <input
-						type="text"class="form-control" id="gymNo" name="gymNo" style="display : inline;"
-						readonly="readonly" /> <input type="button" class="btn btn-default" onclick="searchGym()"
-						name="joinGymSearchBtn" value="헬스장 검색">
-					<div class="check_font" id="phone_check"></div>
+					<label for="gymNo">소속 헬스장</label> <input
+							type="text"class="form-control" id="gymNo" name="gymNo" style="display : inline;"
+							readonly="readonly" /> <input type="button" class="btn btn-default" onclick="searchGym()"
+							name="joinGymSearchBtn" value="헬스장 검색">
+				<div class="check_font" id="phone_check"></div>
+				</div>
+				<div class="tagBox">
+					<label for="tagName">태그 </label>
+						<input type="checkbox" class="form-control" id="tagName" name="tagName">
+					
 				</div>
 				<div class="join-form-group text-center">
 					<button type="submit" class="btn btn-primary">회원가입</button>
