@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"
 	type="text/javascript"></script>
@@ -17,6 +18,11 @@
 	
 </script>
 
+	<%
+		pageContext.setAttribute("crcn", "\r\n");
+		pageContext.setAttribute("br", "<br>");
+	%>
+	
 <style>
 #boardDetail {
 	width: 65%;
@@ -56,7 +62,9 @@ a {
 				</tr>
 				<tr>
 					<td id="head" style="text-align: center;">내용</td>
-					<td colspan="5">${boardDet.boContent}</td>
+					<td colspan="5">
+					${fn:replace(boardDet.boContent, crcn, br)}
+					</td>
 				</tr>
 			</table>
 			<div align="right">

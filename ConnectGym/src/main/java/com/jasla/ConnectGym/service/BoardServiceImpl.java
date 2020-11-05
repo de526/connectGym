@@ -36,9 +36,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int insertBoard(BoardDTO bdto) {
-		return bdao.insertBoard(bdto);
-	}	
+	public void insertBoardList(BoardDTO bdto) {
+		bdao.insertBoardList(bdto);
+	}
+
+	@Override
+	public int getBoardNo() {
+		return bdao.getBoardNo();
+	}
+
 
 	
 	

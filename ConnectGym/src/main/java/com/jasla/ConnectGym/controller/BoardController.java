@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +21,7 @@ public class BoardController {
 	@Autowired
 	public BoardService boardservice;
 
-	// 모든 게시글 불러오는 컨트롤러
+	// 모든 게시글 불러오기
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String home(PagingDTO pdto, Model model, @RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
@@ -49,6 +48,7 @@ public class BoardController {
 		return "board/board";
 	}
 
+	// 게시판 상세보기
 	@RequestMapping(value = "/boardDetail.do")
 	public String boardDetail(@RequestParam(value = "boNo", required = false) int boNo, Model model) {
 
@@ -59,30 +59,33 @@ public class BoardController {
 		return "board/boardDetail";
 	}
 	
-	@RequestMapping(value="/boardInsertForm.do")
-	public String boardInsertForm(ModelMap model) {
-		
-		return "board/boardInsertForm.tiles";
-	}
-	
+	// 게시글 작성 페이지 이동
 	@RequestMapping(value = "/boardInsertForm.do", method = RequestMethod.GET)
 	public String writeBoard() {
 		
 		return "board/boardInsertForm";
 	}
 	
+	// 세션에 저장된 닉네임 가져오기
 	@RequestMapping("memNick")
 	public String nickName(HttpServletRequest request) {
 		
 		return (String)request.getSession().getAttribute("memNick");
 	}
 	
-	
+	// 게시글  insert 하기
 	@RequestMapping(value="/insertBoard.do", method = RequestMethod.GET)
 	public String insertBoard(BoardDTO bdto, Model model) {
-		
-		
-		return "board/boardDetail";
+		int boNo = 0;
+		try {
+			bdto.getBoNo();
+			bdto.setBoNo(boNo);
+			
+			boardservice.insertBoardList(bdto);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "board/boardDetail.do?boNo=" + boNo;
 	}
 
 

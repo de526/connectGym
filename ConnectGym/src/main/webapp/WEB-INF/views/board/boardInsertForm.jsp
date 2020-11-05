@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,11 @@
 	<!-- SmartEditor2 라이브러리 -->
 	<script type="text/javascript" src="resources/se2/js/HuskyEZCreator.js"	charset="utf-8"></script>
 	
+	<%
+		pageContext.setAttribute("crcn", "\r\n");
+		pageContext.setAttribute("br", "<br>");
+	%>
+	
 	<style>
 		#insertBoard {
 			width: 65%;
@@ -32,36 +38,37 @@
 	<div class="container-fluid">
 		<div id="insertBoard">
 			<div class="col-md-12">
-			
-				<table class="table table-hover">
-					<tr>
-						<td class="col-4 text-center">제목</td>
-						<td class="col-8 text-left">
-							<input type="text" id="title" style="width: 100%" />
-						</td>
-					</tr>
-					<tr>
-						<td class="col-4 text-center">작성자</td>
-						<td class="col-8 text-left">
-							<input type="text" class="form-control" name="writer" value="<c:out value='${memNick}'/>" readonly="readonly"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="col-4 text-center">내용</td>
-						<td class="col-8 text-left">
-							<textarea rows="35" cols="100" id="se2" name="se2"	style="width: 100%; height: auto; resize: none;">
-								에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면 됩니다.
-							</textarea>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="col-12 text-center">
-							<button type="button" id="insertBtn">등록</button> 
-							<button type="button" id="cancelBtn">취소</button>
-						</td> 
-					</tr>
-				</table>
 				
+				<Form id="insertForm" method="post" class="form-horizontal">
+					<table class="table table-hover">
+						<tr>
+							<td class="col-4 text-center">제목</td>
+							<td class="col-8 text-left">
+								<input type="text" id="title" style="width: 100%" />
+							</td>
+						</tr>
+						<tr>
+							<td class="col-4 text-center">작성자</td>
+							<td class="col-8 text-left">
+								<input type="text" class="form-control" name="writer" value="<c:out value='${memNick}'/>" readonly="readonly"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-4 text-center">내용</td>
+							<td class="col-8 text-left">
+								<textarea rows="35" cols="100" id="se2" name="se2"	style="width: 100%; height: auto; resize: none;">
+									텍스트 에어리어
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="col-12 text-center">
+								<button type="button" id="insertBtn" class="btn btn-custom-success">등록</button> 
+								<button type="button" id="cancelBtn" class="btn btn-custom-default">취소</button>
+							</td> 
+						</tr>
+					</table>
+				</Form>
 				<div align="right">
 					<button type="button" class="btn btn-default navbar-btn"
 						onclick="history.back()">게시글 목록</button>
@@ -126,18 +133,19 @@
 		
 		$(function() {
 			$("#cancelBtn").click(function() {
-				left.pageSubmitFn("boardList");
+				left.pageSubmitFn("board");
 			});
 			
 			$("#insertBtn").click(function() {
 				insertForm.init();
-				insertForm.pageSubmitFn("insertBoard");
+				insertForm.pageSubmitFn("boardInsert");
 			});
 		});
 				
 	</script>
 	
 	<jsp:include page="../footer.jsp" />
+	
 </body>
 </html>
 

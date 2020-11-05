@@ -35,16 +35,6 @@ a {
 				+ sel;
 	}
 	
-	var left = 
-		{
-			pageSubmitFn : function(pageName){
-				$("#pageName").val(pageName);
-				
-				$("#frm").attr("action", pageName + ".do");
-				
-				$("#frm").submit();
-			}
-		}
 	
 	// 보고싶은 게시글의 row를 클릭하면 선택 게시글의 번호를 통해 해당 게시글로 이동
 	$(function() {
@@ -56,7 +46,7 @@ a {
 	
 		// 게시글 작성 버튼 누르면 작성페이지로 이동
 		$("#writeBtn").click(function() {
-			left.pageSubmitFn("boardInsertForm");
+			location.href = "boardInsertForm.do";
 		});
 	});
 	

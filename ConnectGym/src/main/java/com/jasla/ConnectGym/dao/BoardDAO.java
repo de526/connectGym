@@ -19,6 +19,11 @@ public interface BoardDAO {
 	// 조회수 증가
 	public int plusHit(int boNo);
 	
-	// 게시글 등록
-	public int insertBoard(BoardDTO bdto);
+	// 게시글 인서트
+	public void insertBoardList(BoardDTO bdto);
+	
+	// 게시글 번호 가져오기
+	public int getBoardNo();
+	
+
 }

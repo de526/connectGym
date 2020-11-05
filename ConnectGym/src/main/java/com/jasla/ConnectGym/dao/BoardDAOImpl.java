@@ -36,8 +36,17 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.update("plusHit", boNo);
 	}
 
+
 	@Override
-	public int insertBoard(BoardDTO bdto) {
-		return sqlSession.insert("insertBoard", bdto);
+	public void insertBoardList(BoardDTO bdto) {
+		sqlSession.insert("insertBoard", bdto);
 	}
+
+	@Override
+	public int getBoardNo() {
+		return sqlSession.selectOne("getBoardNo");
+	}
+
+	
+	
 }

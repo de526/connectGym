@@ -43,8 +43,27 @@
 	
 	<!-- 게시글 작성 -->
 	<insert id="insertBoard" parameterType="com.jasla.ConnectGym.domain.BoardDTO">
-	
+		INSERT INTO BOARD_T(
+			boNo,
+			boTitle,
+			boContent,
+			memNick,
+			boWriteDate
+			)
+		VALUES(
+			#{boNo},
+			#{boTitle},
+			#{boContent},
+			#{memNick},
+			SYSDATE
+		)
 	</insert>
+		
+	<!-- 게시글 번호 받아오기 -->
+	<select id="getBoardNo" resultType="int">
+		SELECT NVL(MAX(boNo)+1,1)
+		FROM BOARD_T
+	</select>
 	
 	
 </mapper>
