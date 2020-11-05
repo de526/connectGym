@@ -71,23 +71,23 @@ public class SearchController {
 		}	
 	}
 	
-	@RequestMapping("/mainSearch.do")
-	@ResponseBody
-	public String mainAutocomplete(@RequestParam("search") String mainSearch,@RequestParam("flag") String flag) {
-		log.info("메인 화면 자동완성 컨트롤러");
-		log.info(mainSearch);
-		log.info(flag);
-		
-		if(flag.equals("gym")) {
-						
-			
-		}else if(flag.equals("trainer")) {
-			
-			
-		}
-		
-		return "zzzzzzz";
-	}
+//	@RequestMapping("/mainSearch.do")
+//	@ResponseBody
+//	public String mainAutocomplete(@RequestParam("search") String mainSearch,@RequestParam("flag") String flag) {
+//		log.info("메인 화면 자동완성 컨트롤러");
+//		log.info(mainSearch);
+//		log.info(flag);
+//		
+//		if(flag.equals("gym")) {
+//						
+//			
+//		}else if(flag.equals("trainer")) {
+//			
+//			
+//		}
+//		
+//		return "zzzzzzz";
+//	}
 	
 
 }

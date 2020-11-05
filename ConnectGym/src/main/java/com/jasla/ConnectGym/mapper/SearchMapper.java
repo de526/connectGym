@@ -12,10 +12,9 @@ import com.jasla.ConnectGym.domain.MemberDTO;
 public interface SearchMapper {
 	
 	//헬스장 전체 가져오기
-	@Select("SELECT * FROM "
-			+ "(select * from gym_t g,img_t i "
-			+ "where i.gym_no = g.gym_no "
-			+ "and i.img_name like '%#_1%' escape '#')")
+	@Select("select g.gym_no,g.gym_name,g.gym_info,g.gym_num,g.gym_addr,g.gym_weekday,g.gym_saturday,g.gym_sunday,g.gym_holiday,i.img_name "
+			+ "from gym_t g, img_t i " + 
+			"where i.gym_no = g.gym_no and i.img_name like '%#_1%' escape '#'")
 	List<GymDTO> selectGymAll(); 
 	
 	//트레이너 전체 가져오기
@@ -28,9 +27,9 @@ public interface SearchMapper {
 	
 	//태그값, 검색값 가지고 헬스장 검색
 	@Select("select * from "
-			+ "(select * from gym_t g,img_t i "
-			+ "where i.gym_no = g.gym_no "
-			+ "and i.img_name like '%#_1%' escape '#')g "
+			+ "(select g.gym_no,g.gym_name,g.gym_info,g.gym_num,g.gym_addr,g.gym_weekday,g.gym_saturday,g.gym_sunday,g.gym_holiday,i.img_name" + 
+			" from gym_t g, img_t i" + 
+			" where i.gym_no = g.gym_no and i.img_name like '%#_1%' escape '#')g "
 			+ "where ${query}")
 	List<GymDTO> gymSearchResult(String query);
 	

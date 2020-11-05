@@ -142,6 +142,10 @@
 					checkedTag.push(tags[i].value);
 				}
 			}
+			console.log('flag');
+			console.log('checkedTag')
+			console.log('searchValue')
+			
 			//체크된 배열이랑 검색값 가지고 ajax 다녀오기~
 			$.ajax({
 				url : "/ConnectGym/searchList.do",
@@ -154,6 +158,7 @@
 				cache : false,
 				dataType : "text",
 				success : function(result) {
+					console.log(result)
 					$('#searchList').html(result);
 					//console.log(result);			
 				}
